@@ -93,7 +93,8 @@ async function recordJetReadiness(writer, page, meta, pageIndex, step) {
 }
 
 async function scanApplication(page, {
-  writer, profile, meta, maxPages, stepRetries, fieldSettleMs = 2000,
+  writer, profile, meta, maxPages, stepRetries, fieldSettleMs = 300,
+  captureComboboxOptions = false, defaultCountry = 'United States',
   optionCaptureMaxRounds = 100, optionCaptureStagnantRounds = 2,
   cascadeSampleStates = ['California', 'New York', 'Texas'],
   cascadeProfile = {},
@@ -130,6 +131,8 @@ async function scanApplication(page, {
       pageIndex,
       displayedSteps,
       settleMs: fieldSettleMs,
+      captureComboboxOptions,
+      defaultCountry,
       optionCaptureMaxRounds,
       optionCaptureStagnantRounds,
       cascadeSampleStates,

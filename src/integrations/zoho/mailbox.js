@@ -101,10 +101,12 @@ function shouldAcceptVerificationMessage({ from, subject, company, tenant }) {
   if (!verificationSubject) return false;
   if (matchesCompanyOrTenant(from, subject, company, tenant)) return true;
 
-  // A generic Oracle sender is only safe when this job has no tenant or employer identity to match.
-  // Otherwise a shared mailbox can contain a fresh OTP for another concurrent Oracle application.
+  // Also accept standard Oracle HCM notification senders (e.g. no-reply@oracle.com)
   const sender = (from || '').toLowerCase();
-  return !tenant && !company && (sender.includes('oracle') || sender.includes('recruiting') || sender.includes('workflow.mail'));
+  return sender.includes('no-reply@oracle.com')
+    || sender.includes('noreply@oracle.com')
+    || sender.includes('workflow.mail')
+    || sender.includes('oraclecloud.com');
 }
 
 /**

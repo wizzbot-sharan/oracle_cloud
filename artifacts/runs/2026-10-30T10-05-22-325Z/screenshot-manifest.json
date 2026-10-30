@@ -1,0 +1,42 @@
+[
+  {
+    "sequence": 1,
+    "user_id": "scan_trial",
+    "job_id": "job-1",
+    "worker_id": 1,
+    "page": 0,
+    "step": "application_ready",
+    "kind": "application_ready",
+    "file": "screenshots/00001-job-1-application_ready.png"
+  },
+  {
+    "sequence": 2,
+    "user_id": "scan_trial",
+    "job_id": "job-1",
+    "worker_id": 1,
+    "page": 1,
+    "step": "page_scan",
+    "kind": "page",
+    "file": "screenshots/00002-job-1-page_scan.png"
+  },
+  {
+    "sequence": 3,
+    "user_id": "scan_trial",
+    "job_id": "job-1",
+    "worker_id": 1,
+    "page": 2,
+    "step": "page_scan",
+    "kind": "page",
+    "file": "screenshots/00003-job-1-page_scan.png"
+  },
+  {
+    "sequence": 4,
+    "user_id": "scan_trial",
+    "job_id": "job-1",
+    "worker_id": 1,
+    "page": 3,
+    "step": "page_scan",
+    "kind": "page",
+    "file": "screenshots/00004-job-1-page_scan.png"
+  }
+]

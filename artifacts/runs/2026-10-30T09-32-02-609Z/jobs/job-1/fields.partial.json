@@ -1,0 +1,1278 @@
+{
+  "status": "scanning",
+  "pages": [
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section_names": [
+        "Import your profile",
+        "Contact Information",
+        "Address"
+      ],
+      "field_count": 15
+    }
+  ],
+  "fields": [
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Import your profile",
+      "label": "",
+      "label_source": "aria",
+      "label_confidence": "high",
+      "needs_review": false,
+      "type": "file_upload",
+      "semantic_type": "file_upload",
+      "control_family": "file_upload",
+      "coverage_status": "captured",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[1]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[1]/div[1]/div[2]/div[3]/input[1]",
+        "fingerprint": "input||resumeParserLabel||section[1]/form[1]/div[2]/apply-flow-section[1]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[1]/div[1]/div[2]/div[3]/input[1]",
+        "tag": "input"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[1]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[1]/div[1]/div[2]/div[3]/input[1]",
+        "tag": "input"
+      },
+      "required": false,
+      "disabled": false,
+      "read_only": false,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [],
+      "components": [],
+      "constraints": {
+        "accept": ".doc,.docx,.odt,.pdf,.txt,.rtf,.htm,.html",
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "",
+        "control_name": "",
+        "role": "",
+        "tag": "input",
+        "input_type": "file",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[1]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[1]/div[1]/div[2]/div[3]/input[1]",
+        "choice_container_id": "",
+        "popup_id": "",
+        "option_role": "",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "input",
+        "input_type": "file",
+        "role": "",
+        "aria_label": "Import your profile from resume",
+        "aria_labelledby": "resumeParserLabel",
+        "aria_describedby": "profile-import-resume-upload-error"
+      },
+      "jet": null,
+      "field_id": "import-your-profile-969abfcc",
+      "option_capture": {
+        "status": "not_applicable",
+        "source": "not_applicable",
+        "discovered_count": 0,
+        "scroll_rounds": 0,
+        "end_reached": false,
+        "incomplete_reason": ""
+      },
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    },
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Contact Information",
+      "label": "Last Name",
+      "label_source": "label",
+      "label_confidence": "high",
+      "needs_review": false,
+      "type": "text",
+      "semantic_type": "text",
+      "control_family": "text",
+      "coverage_status": "captured",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[1]",
+        "fingerprint": "div||||section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[1]",
+        "tag": "div"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[1]",
+        "tag": "div"
+      },
+      "required": true,
+      "disabled": false,
+      "read_only": false,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [],
+      "components": [],
+      "constraints": {
+        "accept": null,
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "lastName-26",
+        "control_name": "lastName",
+        "role": "",
+        "tag": "input",
+        "input_type": "text",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[1]",
+        "choice_container_id": "",
+        "popup_id": "",
+        "option_role": "",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "input",
+        "input_type": "text",
+        "role": "",
+        "aria_label": "",
+        "aria_labelledby": "",
+        "aria_describedby": "lastName-26-error"
+      },
+      "jet": null,
+      "field_id": "contact-information-last-name-9745c4f1",
+      "option_capture": {
+        "status": "not_applicable",
+        "source": "not_applicable",
+        "discovered_count": 0,
+        "scroll_rounds": 0,
+        "end_reached": false,
+        "incomplete_reason": ""
+      },
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    },
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Contact Information",
+      "label": "First Name",
+      "label_source": "label",
+      "label_confidence": "high",
+      "needs_review": false,
+      "type": "text",
+      "semantic_type": "text",
+      "control_family": "text",
+      "coverage_status": "captured",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[2]",
+        "fingerprint": "div||||section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[2]",
+        "tag": "div"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[2]",
+        "tag": "div"
+      },
+      "required": true,
+      "disabled": false,
+      "read_only": false,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [],
+      "components": [],
+      "constraints": {
+        "accept": null,
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "firstName-27",
+        "control_name": "firstName",
+        "role": "",
+        "tag": "input",
+        "input_type": "text",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[2]",
+        "choice_container_id": "",
+        "popup_id": "",
+        "option_role": "",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "input",
+        "input_type": "text",
+        "role": "",
+        "aria_label": "",
+        "aria_labelledby": "",
+        "aria_describedby": "firstName-27-error"
+      },
+      "jet": null,
+      "field_id": "contact-information-first-name-f0bbd317",
+      "option_capture": {
+        "status": "not_applicable",
+        "source": "not_applicable",
+        "discovered_count": 0,
+        "scroll_rounds": 0,
+        "end_reached": false,
+        "incomplete_reason": ""
+      },
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    },
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Contact Information",
+      "label": "Title",
+      "label_source": "aria",
+      "label_confidence": "high",
+      "needs_review": false,
+      "type": "single_choice",
+      "semantic_type": "single_choice",
+      "control_family": "single_choice",
+      "coverage_status": "options_scanned",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[3]/div[1]/div[1]/ul[1]",
+        "fingerprint": "ul||||section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[3]/div[1]/div[1]/ul[1]",
+        "tag": "ul"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[3]/div[1]/div[1]/ul[1]",
+        "tag": "ul"
+      },
+      "required": false,
+      "disabled": false,
+      "read_only": false,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [
+        {
+          "label": "Doctor",
+          "value": "Doctor",
+          "disabled": false
+        },
+        {
+          "label": "Miss",
+          "value": "Miss",
+          "disabled": false
+        },
+        {
+          "label": "Mr.",
+          "value": "Mr.",
+          "disabled": false
+        },
+        {
+          "label": "Mrs.",
+          "value": "Mrs.",
+          "disabled": false
+        },
+        {
+          "label": "Ms.",
+          "value": "Ms.",
+          "disabled": false
+        }
+      ],
+      "components": [],
+      "constraints": {
+        "accept": null,
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "",
+        "control_name": "",
+        "role": "radio",
+        "tag": "button",
+        "input_type": "button",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[3]/div[1]/div[1]/ul[1]",
+        "choice_container_id": "",
+        "popup_id": "",
+        "option_role": "radio",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "button",
+        "input_type": "button",
+        "role": "radio",
+        "aria_label": "",
+        "aria_labelledby": "",
+        "aria_describedby": ""
+      },
+      "jet": null,
+      "field_id": "contact-information-title-0d48606f",
+      "option_capture": {
+        "status": "complete",
+        "source": "rendered_dom",
+        "discovered_count": 5,
+        "scroll_rounds": 0,
+        "end_reached": true,
+        "incomplete_reason": ""
+      },
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    },
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Contact Information",
+      "label": "Middle Name",
+      "label_source": "label",
+      "label_confidence": "high",
+      "needs_review": false,
+      "type": "text",
+      "semantic_type": "text",
+      "control_family": "text",
+      "coverage_status": "captured",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[4]",
+        "fingerprint": "div||||section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[4]",
+        "tag": "div"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[4]",
+        "tag": "div"
+      },
+      "required": false,
+      "disabled": false,
+      "read_only": false,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [],
+      "components": [],
+      "constraints": {
+        "accept": null,
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "middleNames-29",
+        "control_name": "middleNames",
+        "role": "",
+        "tag": "input",
+        "input_type": "text",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[4]",
+        "choice_container_id": "",
+        "popup_id": "",
+        "option_role": "",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "input",
+        "input_type": "text",
+        "role": "",
+        "aria_label": "",
+        "aria_labelledby": "",
+        "aria_describedby": "middleNames-29-error"
+      },
+      "jet": null,
+      "field_id": "contact-information-middle-name-e764300d",
+      "option_capture": {
+        "status": "not_applicable",
+        "source": "not_applicable",
+        "discovered_count": 0,
+        "scroll_rounds": 0,
+        "end_reached": false,
+        "incomplete_reason": ""
+      },
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    },
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Contact Information",
+      "label": "Preferred First Name",
+      "label_source": "label",
+      "label_confidence": "high",
+      "needs_review": false,
+      "type": "text",
+      "semantic_type": "text",
+      "control_family": "text",
+      "coverage_status": "captured",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[5]",
+        "fingerprint": "div||||section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[5]",
+        "tag": "div"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[5]",
+        "tag": "div"
+      },
+      "required": true,
+      "disabled": false,
+      "read_only": false,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [],
+      "components": [],
+      "constraints": {
+        "accept": null,
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "knownAs-30",
+        "control_name": "knownAs",
+        "role": "",
+        "tag": "input",
+        "input_type": "text",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[5]",
+        "choice_container_id": "",
+        "popup_id": "",
+        "option_role": "",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "input",
+        "input_type": "text",
+        "role": "",
+        "aria_label": "",
+        "aria_labelledby": "",
+        "aria_describedby": "knownAs-30-error"
+      },
+      "jet": null,
+      "field_id": "contact-information-preferred-first-name-c74b3fd2",
+      "option_capture": {
+        "status": "not_applicable",
+        "source": "not_applicable",
+        "discovered_count": 0,
+        "scroll_rounds": 0,
+        "end_reached": false,
+        "incomplete_reason": ""
+      },
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    },
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Contact Information",
+      "label": "Email Address",
+      "label_source": "label",
+      "label_confidence": "high",
+      "needs_review": false,
+      "type": "email",
+      "semantic_type": "email",
+      "control_family": "email",
+      "coverage_status": "captured",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[6]/div[1]",
+        "fingerprint": "div||||section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[6]/div[1]",
+        "tag": "div"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[6]/div[1]",
+        "tag": "div"
+      },
+      "required": false,
+      "disabled": false,
+      "read_only": true,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [],
+      "components": [],
+      "constraints": {
+        "accept": null,
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "email-31",
+        "control_name": "email",
+        "role": "",
+        "tag": "input",
+        "input_type": "email",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[6]/div[1]",
+        "choice_container_id": "",
+        "popup_id": "",
+        "option_role": "",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "input",
+        "input_type": "email",
+        "role": "",
+        "aria_label": "",
+        "aria_labelledby": "",
+        "aria_describedby": ""
+      },
+      "jet": null,
+      "field_id": "contact-information-email-address-219c510e",
+      "option_capture": {
+        "status": "not_applicable",
+        "source": "not_applicable",
+        "discovered_count": 0,
+        "scroll_rounds": 0,
+        "end_reached": false,
+        "incomplete_reason": ""
+      },
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    },
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Contact Information",
+      "label": "Unlabelled div",
+      "label_source": "none",
+      "label_confidence": "none",
+      "needs_review": true,
+      "type": "phone_composite",
+      "semantic_type": "phone_composite",
+      "control_family": "phone_composite",
+      "coverage_status": "captured",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[7]",
+        "fingerprint": "div||||section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[7]",
+        "tag": "div"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[7]",
+        "tag": "div"
+      },
+      "required": false,
+      "disabled": false,
+      "read_only": false,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [],
+      "components": [
+        {
+          "label": "Country code",
+          "type": "text",
+          "control_id": "country-codes-dropdownphoneNumber",
+          "control_name": "phoneNumber",
+          "popup_id": "country-codes-dropdownphoneNumber-listbox",
+          "interaction_safe": true
+        },
+        {
+          "label": "Phone Number",
+          "type": "tel",
+          "control_id": "",
+          "control_name": "",
+          "popup_id": "",
+          "interaction_safe": false
+        }
+      ],
+      "constraints": {
+        "accept": null,
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "country-codes-dropdownphoneNumber",
+        "control_name": "phoneNumber",
+        "role": "combobox",
+        "tag": "input",
+        "input_type": "text",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[1]/apply-flow-block[1]/div[1]/div[2]/name-form[1]/form-builder[1]/div[7]",
+        "choice_container_id": "",
+        "popup_id": "country-codes-dropdownphoneNumber-listbox",
+        "option_role": "gridcell",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "input",
+        "input_type": "text",
+        "role": "combobox",
+        "aria_label": "",
+        "aria_labelledby": "labelText-undefined inputFieldLabel-country-codes-dropdownphoneNumber",
+        "aria_describedby": "phoneNumber-32-error"
+      },
+      "jet": null,
+      "field_id": "contact-information-unlabelled-div-a8d62506",
+      "option_capture": {
+        "status": "complete",
+        "source": "combobox_fast_mode",
+        "discovered_count": 0,
+        "scroll_rounds": 0,
+        "end_reached": false,
+        "incomplete_reason": ""
+      },
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    },
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Address",
+      "label": "Country",
+      "label_source": "label",
+      "label_confidence": "high",
+      "needs_review": false,
+      "type": "combobox",
+      "semantic_type": "combobox",
+      "control_family": "combobox",
+      "coverage_status": "captured",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[1]/div[1]",
+        "fingerprint": "div||||section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[1]/div[1]",
+        "tag": "div"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[1]/div[1]",
+        "tag": "div"
+      },
+      "required": true,
+      "disabled": false,
+      "read_only": false,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [],
+      "components": [],
+      "constraints": {
+        "accept": null,
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "country-19",
+        "control_name": "country",
+        "role": "combobox",
+        "tag": "input",
+        "input_type": "text",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[1]/div[1]",
+        "choice_container_id": "",
+        "popup_id": "country-19-listbox",
+        "option_role": "gridcell",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "input",
+        "input_type": "text",
+        "role": "combobox",
+        "aria_label": "",
+        "aria_labelledby": "",
+        "aria_describedby": "country-19-error"
+      },
+      "jet": null,
+      "field_id": "address-country-05af017b",
+      "option_capture": {
+        "status": "complete",
+        "source": "combobox_fast_mode",
+        "discovered_count": 0,
+        "scroll_rounds": 0,
+        "end_reached": false,
+        "incomplete_reason": ""
+      },
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    },
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Address",
+      "label": "Address Line 1",
+      "label_source": "label",
+      "label_confidence": "high",
+      "needs_review": false,
+      "type": "search_autocomplete",
+      "semantic_type": "search_autocomplete",
+      "control_family": "search_autocomplete",
+      "coverage_status": "captured",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[1]",
+        "fingerprint": "div||||section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[1]",
+        "tag": "div"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[1]",
+        "tag": "div"
+      },
+      "required": true,
+      "disabled": false,
+      "read_only": false,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [],
+      "components": [],
+      "constraints": {
+        "accept": null,
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "addressLine1-20",
+        "control_name": "addressLine1",
+        "role": "combobox",
+        "tag": "input",
+        "input_type": "text",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[1]",
+        "choice_container_id": "",
+        "popup_id": "addressLine1-20-listbox",
+        "option_role": "gridcell",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "input",
+        "input_type": "text",
+        "role": "combobox",
+        "aria_label": "",
+        "aria_labelledby": "",
+        "aria_describedby": "oracle-maps-search-hint addressLine1-20-error"
+      },
+      "jet": null,
+      "field_id": "address-address-line-1-f752be23",
+      "option_capture": {
+        "status": "complete",
+        "source": "search_autocomplete",
+        "discovered_count": 0,
+        "scroll_rounds": 0,
+        "end_reached": false,
+        "incomplete_reason": "requires_query"
+      },
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    },
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Address",
+      "label": "Address Line 2",
+      "label_source": "label",
+      "label_confidence": "high",
+      "needs_review": false,
+      "type": "text",
+      "semantic_type": "text",
+      "control_family": "text",
+      "coverage_status": "captured",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[2]",
+        "fingerprint": "div||||section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[2]",
+        "tag": "div"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[2]",
+        "tag": "div"
+      },
+      "required": false,
+      "disabled": false,
+      "read_only": false,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [],
+      "components": [],
+      "constraints": {
+        "accept": null,
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "addressLine2-21",
+        "control_name": "addressLine2",
+        "role": "",
+        "tag": "input",
+        "input_type": "text",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[2]",
+        "choice_container_id": "",
+        "popup_id": "",
+        "option_role": "",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "input",
+        "input_type": "text",
+        "role": "",
+        "aria_label": "",
+        "aria_labelledby": "",
+        "aria_describedby": "addressLine2-21-error"
+      },
+      "jet": null,
+      "field_id": "address-address-line-2-ade950a7",
+      "option_capture": {
+        "status": "not_applicable",
+        "source": "not_applicable",
+        "discovered_count": 0,
+        "scroll_rounds": 0,
+        "end_reached": false,
+        "incomplete_reason": ""
+      },
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    },
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Address",
+      "label": "ZIP Code",
+      "label_source": "label",
+      "label_confidence": "high",
+      "needs_review": false,
+      "type": "combobox",
+      "semantic_type": "combobox",
+      "control_family": "combobox",
+      "coverage_status": "captured",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[3]",
+        "fingerprint": "div||||section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[3]",
+        "tag": "div"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[3]",
+        "tag": "div"
+      },
+      "required": true,
+      "disabled": false,
+      "read_only": false,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [],
+      "components": [],
+      "constraints": {
+        "accept": null,
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "postalCode-22",
+        "control_name": "postalCode",
+        "role": "combobox",
+        "tag": "input",
+        "input_type": "text",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[3]",
+        "choice_container_id": "",
+        "popup_id": "postalCode-22-listbox",
+        "option_role": "gridcell",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "input",
+        "input_type": "text",
+        "role": "combobox",
+        "aria_label": "",
+        "aria_labelledby": "",
+        "aria_describedby": "postalCode-22-error"
+      },
+      "jet": null,
+      "field_id": "address-zip-code-a73d149b",
+      "option_capture": {
+        "status": "complete",
+        "source": "combobox_fast_mode",
+        "discovered_count": 0,
+        "scroll_rounds": 0,
+        "end_reached": false,
+        "incomplete_reason": ""
+      },
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    },
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Address",
+      "label": "City",
+      "label_source": "label",
+      "label_confidence": "high",
+      "needs_review": false,
+      "type": "combobox",
+      "semantic_type": "combobox",
+      "control_family": "combobox",
+      "coverage_status": "captured",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[4]",
+        "fingerprint": "div||||section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[4]",
+        "tag": "div"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[4]",
+        "tag": "div"
+      },
+      "required": true,
+      "disabled": false,
+      "read_only": false,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [],
+      "components": [],
+      "constraints": {
+        "accept": null,
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "city-23",
+        "control_name": "city",
+        "role": "combobox",
+        "tag": "input",
+        "input_type": "text",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[4]",
+        "choice_container_id": "",
+        "popup_id": "city-23-listbox",
+        "option_role": "gridcell",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "input",
+        "input_type": "text",
+        "role": "combobox",
+        "aria_label": "",
+        "aria_labelledby": "",
+        "aria_describedby": "city-23-error"
+      },
+      "jet": null,
+      "field_id": "address-city-9227d9fc",
+      "option_capture": {
+        "status": "complete",
+        "source": "combobox_fast_mode",
+        "discovered_count": 0,
+        "scroll_rounds": 0,
+        "end_reached": false,
+        "incomplete_reason": ""
+      },
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    },
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Address",
+      "label": "State",
+      "label_source": "label",
+      "label_confidence": "high",
+      "needs_review": false,
+      "type": "combobox",
+      "semantic_type": "combobox",
+      "control_family": "combobox",
+      "coverage_status": "captured",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[5]",
+        "fingerprint": "div||||section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[5]",
+        "tag": "div"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[5]",
+        "tag": "div"
+      },
+      "required": true,
+      "disabled": false,
+      "read_only": false,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [],
+      "components": [],
+      "constraints": {
+        "accept": null,
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "region2-24",
+        "control_name": "region2",
+        "role": "combobox",
+        "tag": "input",
+        "input_type": "text",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[5]",
+        "choice_container_id": "",
+        "popup_id": "region2-24-listbox",
+        "option_role": "gridcell",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "input",
+        "input_type": "text",
+        "role": "combobox",
+        "aria_label": "",
+        "aria_labelledby": "",
+        "aria_describedby": "region2-24-error"
+      },
+      "jet": null,
+      "field_id": "address-state-c1ec7ff9",
+      "option_capture": {
+        "status": "complete",
+        "source": "combobox_fast_mode",
+        "discovered_count": 0,
+        "scroll_rounds": 0,
+        "end_reached": false,
+        "incomplete_reason": ""
+      },
+      "cascade_samples": [],
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    },
+    {
+      "page_index": 1,
+      "displayed_steps": [],
+      "section": "Address",
+      "label": "County",
+      "label_source": "label",
+      "label_confidence": "high",
+      "needs_review": false,
+      "type": "combobox",
+      "semantic_type": "combobox",
+      "control_family": "combobox",
+      "coverage_status": "captured",
+      "question_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[6]",
+        "fingerprint": "div||||section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[6]",
+        "tag": "div"
+      },
+      "control_container": {
+        "id": "",
+        "path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[6]",
+        "tag": "div"
+      },
+      "required": true,
+      "disabled": false,
+      "read_only": false,
+      "repeatable": false,
+      "repeater_kind": "",
+      "repeater_schema": [],
+      "conditional_path": [],
+      "conditional_parents": [],
+      "options": [],
+      "components": [],
+      "constraints": {
+        "accept": null,
+        "multiple": false,
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null
+      },
+      "placeholder": "",
+      "locator": {
+        "control_id": "region1-25",
+        "control_name": "region1",
+        "role": "combobox",
+        "tag": "input",
+        "input_type": "text",
+        "interaction_safe": true,
+        "question_container_id": "",
+        "question_container_path": "section[1]/form[1]/div[2]/apply-flow-section[2]/div[1]/ul[1]/li[2]/apply-flow-block[1]/div[1]/div[1]/fieldset[1]/div[1]/address-form-v2[1]/form-builder[2]/div[6]",
+        "choice_container_id": "",
+        "popup_id": "region1-25-listbox",
+        "option_role": "gridcell",
+        "target_text": ""
+      },
+      "dom": {
+        "tag": "input",
+        "input_type": "text",
+        "role": "combobox",
+        "aria_label": "",
+        "aria_labelledby": "",
+        "aria_describedby": "region1-25-error"
+      },
+      "jet": null,
+      "field_id": "address-county-60009934",
+      "option_capture": {
+        "status": "complete",
+        "source": "combobox_fast_mode",
+        "discovered_count": 0,
+        "scroll_rounds": 0,
+        "end_reached": false,
+        "incomplete_reason": ""
+      },
+      "screenshot": "screenshots/00002-job-1-page_scan.png"
+    }
+  ],
+  "worklist": [
+    {
+      "field_id": "import-your-profile-969abfcc",
+      "status": "captured"
+    },
+    {
+      "field_id": "contact-information-last-name-9745c4f1",
+      "status": "captured"
+    },
+    {
+      "field_id": "contact-information-first-name-f0bbd317",
+      "status": "captured"
+    },
+    {
+      "field_id": "contact-information-title-0d48606f",
+      "status": "options_scanned"
+    },
+    {
+      "field_id": "contact-information-middle-name-e764300d",
+      "status": "captured"
+    },
+    {
+      "field_id": "contact-information-preferred-first-name-c74b3fd2",
+      "status": "captured"
+    },
+    {
+      "field_id": "contact-information-email-address-219c510e",
+      "status": "captured"
+    },
+    {
+      "field_id": "contact-information-unlabelled-div-a8d62506",
+      "status": "captured"
+    },
+    {
+      "field_id": "address-country-05af017b",
+      "status": "captured"
+    },
+    {
+      "field_id": "address-address-line-1-f752be23",
+      "status": "captured"
+    },
+    {
+      "field_id": "address-address-line-2-ade950a7",
+      "status": "captured"
+    },
+    {
+      "field_id": "address-zip-code-a73d149b",
+      "status": "captured"
+    },
+    {
+      "field_id": "address-city-9227d9fc",
+      "status": "captured"
+    },
+    {
+      "field_id": "address-state-c1ec7ff9",
+      "status": "captured"
+    },
+    {
+      "field_id": "address-county-60009934",
+      "status": "captured"
+    }
+  ]
+}

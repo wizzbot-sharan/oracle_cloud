@@ -1,0 +1,32 @@
+[
+  {
+    "sequence": 1,
+    "user_id": "scan_trial",
+    "job_id": "howmet-118165",
+    "worker_id": 1,
+    "page": 0,
+    "step": "application_ready",
+    "kind": "application_ready",
+    "file": "screenshots/00001-howmet-118165-application_ready.png"
+  },
+  {
+    "sequence": 2,
+    "user_id": "scan_trial",
+    "job_id": "howmet-118165",
+    "worker_id": 1,
+    "page": 1,
+    "step": "page_scan",
+    "kind": "page",
+    "file": "screenshots/00002-howmet-118165-page_scan.png"
+  },
+  {
+    "sequence": 3,
+    "user_id": "scan_trial",
+    "job_id": "howmet-118165",
+    "worker_id": 1,
+    "page": 1,
+    "step": "submit_visible",
+    "kind": "submit",
+    "file": "screenshots/00003-howmet-118165-submit_visible.png"
+  }
+]

@@ -172,6 +172,8 @@ async function run(config, dependencies = {}) {
           maxPages: config.maxPages,
           stepRetries: config.stepRetries,
           fieldSettleMs: config.fieldSettleMs,
+          captureComboboxOptions: config.captureComboboxOptions,
+          defaultCountry: config.defaultCountry,
           optionCaptureMaxRounds: config.optionCaptureMaxRounds,
           optionCaptureStagnantRounds: config.optionCaptureStagnantRounds,
           cascadeSampleStates: config.cascadeSampleStates,

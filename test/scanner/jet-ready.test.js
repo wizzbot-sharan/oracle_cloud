@@ -50,3 +50,24 @@ test('waitForOracleJetReady returns busy-state descriptions when JET readiness t
   });
   await page.close();
 });
+
+test('waitForOracleJetReady returns timeout when JET whenReady promise hangs indefinitely', async () => {
+  const page = await browser.newPage();
+  await page.setContent(`<script>
+    window.oj = { Context: { getPageContext: () => ({ getBusyContext: () => ({
+      whenReady: () => new Promise(() => {}),
+      getBusyStates: () => [{ description: 'active background timer' }]
+    }) }) } };
+  </script>`);
+
+  const start = Date.now();
+  const result = await waitForOracleJetReady(page, { timeoutMs: 100 });
+  const duration = Date.now() - start;
+
+  assert.deepEqual(result, {
+    status: 'timeout',
+    busy_states: ['active background timer'],
+  });
+  assert.ok(duration < 1000, `Expected duration < 1000ms, took ${duration}ms`);
+  await page.close();
+});

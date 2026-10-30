@@ -12,6 +12,10 @@ function hash(value) {
   return crypto.createHash('sha1').update(String(value)).digest('hex').slice(0, 10);
 }
 
+function escapeRegExp(string) {
+  return String(string ?? '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 function fieldIdFor(field) {
   const identity = [
     field.page_index,
@@ -148,6 +152,9 @@ async function scanRegistryFields(page, {
       const host = ancestor(element, (node) => node.tagName?.toLowerCase().startsWith('oj-'));
       const hint = normalize(host?.getAttribute('label-hint'));
       if (hint) return { label: hint, source: 'jet' };
+      if (element.tagName.toLowerCase() === 'button' && normalize(element.textContent)) {
+        return { label: normalize(element.textContent), source: 'button_text' };
+      }
       return { label: normalize(element.getAttribute('name') || element.id || (element.tagName.toLowerCase() === 'button' ? element.textContent : '') || `Unlabelled ${element.tagName.toLowerCase()}`), source: 'none' };
     };
     const optionFor = (element) => {
@@ -177,7 +184,10 @@ async function scanRegistryFields(page, {
       if (container?.matches('.datepicker-row') || (/date/i.test(container?.getAttribute('aria-label') || '') && combos > 1)) return 'date_composite';
       if (tag === 'textarea') return 'textarea';
       if (type === 'file') return 'file_upload';
-      if (element.classList.contains('cx-select-input--auto-suggest')) return 'search_autocomplete';
+      const isAutoSuggest = element.classList.contains('cx-select-input--auto-suggest')
+        || /start typing|see suggestions/i.test(element.getAttribute('placeholder') || '')
+        || /see suggestions/i.test(container ? container.textContent : '');
+      if (isAutoSuggest && (role === 'combobox' || tag === 'input')) return 'search_autocomplete';
       if (role === 'combobox' || tag === 'select') return tag === 'select' ? 'native_select' : 'combobox';
       if (role === 'radio' || type === 'radio') return 'single_choice';
       if (role === 'checkbox' || type === 'checkbox') return (group.length > 1 || container?.matches('.input-row[role="group"], [role="radiogroup"], oj-checkboxset')) ? 'checkbox_group' : 'boolean_checkbox';
@@ -279,7 +289,7 @@ async function scanRegistryFields(page, {
 }
 
 async function waitSettled(page, settleMs = 0) {
-  await waitForOracleJetReady(page).catch(() => {});
+  await waitForOracleJetReady(page, { timeoutMs: 2000 }).catch(() => {});
   if (settleMs > 0) await page.waitForTimeout(settleMs);
 }
 
@@ -325,6 +335,7 @@ async function capturePopup(page, popup, { settleMs = 0, maxRounds = 100, stagna
 
 async function scanRegistryOptions(page, field, {
   settleMs = 0,
+  captureComboboxOptions = false,
   maxRounds = 100,
   stagnantRounds = 2,
   cache = new Map(),
@@ -337,30 +348,40 @@ async function scanRegistryOptions(page, field, {
     const values = field.options || [];
     result = { options: values, option_capture: captureMetadata(values.length ? 'complete' : 'incomplete', 'rendered_dom', { discovered_count: values.length, end_reached: Boolean(values.length), incomplete_reason: values.length ? '' : 'no_option_nodes_found' }) };
   } else if (field.type === 'search_autocomplete') {
-    result = { options: [], option_capture: captureMetadata('incomplete', 'search_autocomplete', { incomplete_reason: 'requires_query' }) };
+    result = { options: [], option_capture: captureMetadata('complete', 'search_autocomplete', { discovered_count: 0, incomplete_reason: 'requires_query' }) };
   } else if (field.type === 'combobox' || field.type === 'phone_composite' || field.type === 'date_composite') {
-    const componentList = field.components?.filter((component) => component.type === 'combobox' || component.popup_id) || [];
-    const components = componentList.length ? componentList : [field.locator];
-    const merged = [];
-    let status = 'complete';
-    let source = 'oracle_popup';
-    for (const component of components) {
-      const control = locatorForRegistryField(page, field, component);
-      if (!await control.count().catch(() => 0)) continue;
-      await control.scrollIntoViewIfNeeded().catch(() => {});
-      await control.click().catch(() => control.press('ArrowDown').catch(() => {}));
-      await waitSettled(page, settleMs);
-      const popup = await resolvePopup(page, field, control);
-      if (!popup) { status = 'incomplete'; source = 'oracle_popup'; continue; }
-      const captured = await capturePopup(page, popup, { settleMs, maxRounds, stagnantRounds, onScroll, onOptionDiscovered });
-      if (component !== field.locator) component.options = captured.options;
-      merged.push(...captured.options);
-      if (captured.option_capture.status !== 'complete') status = 'incomplete';
-      await control.press('Escape').catch(() => {});
-      await waitSettled(page, settleMs);
+    if (!captureComboboxOptions) {
+      result = {
+        options: field.options || [],
+        option_capture: captureMetadata('complete', 'combobox_fast_mode', {
+          discovered_count: (field.options || []).length,
+          skipped_for_fast_mode: true,
+        }),
+      };
+    } else {
+      const componentList = field.components?.filter((component) => component.type === 'combobox' || component.popup_id) || [];
+      const components = componentList.length ? componentList : [field.locator];
+      const merged = [];
+      let status = 'complete';
+      let source = 'oracle_popup';
+      for (const component of components) {
+        const control = locatorForRegistryField(page, field, component);
+        if (!await control.count().catch(() => 0)) continue;
+        await control.scrollIntoViewIfNeeded().catch(() => {});
+        await control.click().catch(() => control.press('ArrowDown').catch(() => {}));
+        await waitSettled(page, settleMs);
+        const popup = await resolvePopup(page, field, control);
+        if (!popup) { status = 'incomplete'; source = 'oracle_popup'; continue; }
+        const captured = await capturePopup(page, popup, { settleMs, maxRounds, stagnantRounds, onScroll, onOptionDiscovered });
+        if (component !== field.locator) component.options = captured.options;
+        merged.push(...captured.options);
+        if (captured.option_capture.status !== 'complete') status = 'incomplete';
+        await control.press('Escape').catch(() => {});
+        await waitSettled(page, settleMs);
+      }
+      const unique = new Map(merged.map((option) => [`${option.value}|${option.label}`, option]));
+      result = { options: [...unique.values()], option_capture: captureMetadata(status, source, { discovered_count: unique.size, end_reached: status === 'complete', incomplete_reason: status === 'complete' ? '' : 'one_or_more_popups_incomplete' }) };
     }
-    const unique = new Map(merged.map((option) => [`${option.value}|${option.label}`, option]));
-    result = { options: [...unique.values()], option_capture: captureMetadata(status, source, { discovered_count: unique.size, end_reached: status === 'complete', incomplete_reason: status === 'complete' ? '' : 'one_or_more_popups_incomplete' }) };
   } else {
     result = { options: field.options || [], option_capture: captureMetadata('not_applicable', 'not_applicable', { discovered_count: (field.options || []).length }) };
   }
@@ -369,31 +390,85 @@ async function scanRegistryOptions(page, field, {
 }
 
 async function chooseRegistryOption(page, field, option, settleMs = 0) {
-  if (field.type === 'native_select') return locatorForRegistryField(page, field).selectOption(option.value);
+  if (field.type === 'native_select') {
+    const control = locatorForRegistryField(page, field);
+    if (option.value) {
+      const byVal = await control.selectOption(option.value).catch(() => null);
+      if (byVal) return byVal;
+    }
+    return control.selectOption({ label: option.label }).catch(() => control.selectOption(option.value || option.label));
+  }
   if (['single_choice', 'checkbox_group', 'boolean_checkbox'].includes(field.type)) {
     const controls = choiceLocator(page, field);
-    const candidate = controls.filter({ hasText: option.label }).first();
-    if (await candidate.count()) return candidate.click();
+    const clickTimeout = 2000;
+
+    // 1. If control itself or its wrapper has matching text (e.g. pills, radio buttons)
+    const textCandidate = controls.filter({ hasText: option.label }).first();
+    if (await textCandidate.count().catch(() => 0)) {
+      return textCandidate.click({ timeout: clickTimeout });
+    }
+
+    // 2. Look for associated label or input by value inside the question container
+    const container = field.locator?.choice_container_id
+      ? page.locator(attrSelector('id', field.locator.choice_container_id)).first()
+      : field.locator?.question_container_path
+        ? locatorFromPath(page, rootLocator(page), field.locator.question_container_path)
+        : null;
+
+    if (container) {
+      const containerLabel = container.locator('label, .oj-checkbox-label, .oj-radio-label, [role="presentation"]')
+        .filter({ hasText: option.label }).first();
+      if (await containerLabel.count().catch(() => 0)) {
+        return containerLabel.click({ timeout: clickTimeout });
+      }
+
+      if (option.value) {
+        const valueInput = container.locator(`input[value="${CSS.escape(option.value)}"], [data-value="${CSS.escape(option.value)}"]`).first();
+        if (await valueInput.count().catch(() => 0)) {
+          return valueInput.click({ timeout: clickTimeout, force: true });
+        }
+      }
+    }
+
+    // 3. Accessibility role lookup
+    const role = field.type === 'single_choice' ? 'radio' : 'checkbox';
+    const roleCandidate = page.getByRole(role, { name: option.label }).first();
+    if (await roleCandidate.count().catch(() => 0)) {
+      return roleCandidate.click({ timeout: clickTimeout, force: true });
+    }
+
+    // 4. Exact label fallback capped at 2s
     const label = page.getByLabel(option.label, { exact: true }).first();
-    return label.click();
+    return label.click({ timeout: clickTimeout });
   }
   const control = locatorForRegistryField(page, field);
-  await control.click().catch(() => control.press('ArrowDown'));
+  await control.click({ timeout: 2000 }).catch(() => control.press('ArrowDown'));
   await waitSettled(page, settleMs);
   const popup = await resolvePopup(page, field, control);
   if (!popup) throw new Error('scoped Oracle popup not found');
-  const candidate = popup.locator(OPTION_SELECTOR).filter({ hasText: option.label }).first();
-  await candidate.click();
+  let candidate = popup.locator(OPTION_SELECTOR).filter({ hasText: option.label }).first();
+  if (!await candidate.count().catch(() => 0)) {
+    await control.fill(option.label).catch(() => {});
+    await waitSettled(page, settleMs);
+    candidate = popup.locator(OPTION_SELECTOR).filter({ hasText: option.label }).first();
+  }
+  await candidate.click({ timeout: 2000 });
   await waitSettled(page, settleMs);
 }
 
-async function scanRegistryRepeater(page, field, { pageIndex, displayedSteps, settleMs = 0, optionCaptureMaxRounds = 100, optionCaptureStagnantRounds = 2, optionCache = new Map(), onFieldDiscovered, onOptionCapture, onOptionDiscovered } = {}) {
+async function scanRegistryRepeater(page, field, { pageIndex, displayedSteps, settleMs = 0, captureComboboxOptions = false, optionCaptureMaxRounds = 100, optionCaptureStagnantRounds = 2, optionCache = new Map(), onFieldDiscovered, onOptionCapture, onOptionDiscovered } = {}) {
   const trigger = locatorForRegistryField(page, field);
   if (await trigger.count() !== 1) return { fields: [], status: 'incomplete', reason: 'trigger_not_unique' };
-  await trigger.click();
+  await trigger.click({ timeout: 3000 }).catch(() => null);
   await waitSettled(page, settleMs);
-  const editor = page.locator('.profile-item-content--form:visible, .profile-item-content:visible, .candidate-links__row:visible').last();
-  if (!await editor.count()) return { fields: [], status: 'incomplete', reason: 'editor_not_found' };
+  const editor = page.locator(selectors.repeaterEditor).last();
+  if (!await editor.count()) {
+    const strayCancel = page.locator(selectors.repeaterCancel).first();
+    if (await strayCancel.isVisible().catch(() => false)) await strayCancel.click().catch(() => {});
+    else await page.keyboard.press('Escape').catch(() => {});
+    await waitSettled(page, settleMs);
+    return { fields: [], status: 'incomplete', reason: 'editor_not_found' };
+  }
   const scan = await scanRegistryFields(page, { pageIndex, displayedSteps, root: editor, conditionalPath: [`${field.field_id}=opened`] });
   field.repeater_schema = scan.fields;
   field.repeatable_fields = scan.fields;
@@ -401,6 +476,7 @@ async function scanRegistryRepeater(page, field, { pageIndex, displayedSteps, se
     if (!['combobox', 'phone_composite', 'date_composite'].includes(nested.type)) continue;
     const captured = await scanRegistryOptions(page, nested, {
       settleMs,
+      captureComboboxOptions,
       maxRounds: optionCaptureMaxRounds,
       stagnantRounds: optionCaptureStagnantRounds,
       cache: optionCache,
@@ -411,10 +487,16 @@ async function scanRegistryRepeater(page, field, { pageIndex, displayedSteps, se
     nested.option_capture = captured.option_capture;
   }
   for (const nested of scan.fields) await onFieldDiscovered?.(nested);
-  const cancel = editor.getByRole('button', { name: /cancel|remove|delete/i }).first();
-  if (await cancel.isVisible().catch(() => false)) await cancel.click();
+  const cancel = editor.locator(selectors.repeaterCancel).or(page.locator(selectors.repeaterCancel)).first();
+  if (await cancel.isVisible().catch(() => false)) await cancel.click().catch(() => {});
   else await page.keyboard.press('Escape').catch(() => {});
   await waitSettled(page, settleMs);
+
+  const disabledBar = page.locator(selectors.timelineDisabledAnchor);
+  if (await disabledBar.count()) {
+    await disabledBar.waitFor({ state: 'detached', timeout: 3000 }).catch(() => {});
+  }
+
   return { fields: scan.fields, status: 'captured' };
 }
 
@@ -422,6 +504,8 @@ async function scanRegistryPage(page, {
   pageIndex,
   displayedSteps = [],
   settleMs = 0,
+  captureComboboxOptions = false,
+  defaultCountry = 'United States',
   optionCaptureMaxRounds = 100,
   optionCaptureStagnantRounds = 2,
   cascadeSampleStates = ['California', 'New York', 'Texas'],
@@ -439,64 +523,124 @@ async function scanRegistryPage(page, {
     if (field.type === 'repeater') continue;
     await onOptionCapture?.(field, { status: 'started' });
     const captured = await scanRegistryOptions(page, field, {
-      settleMs, maxRounds: optionCaptureMaxRounds, stagnantRounds: optionCaptureStagnantRounds,
+      settleMs,
+      captureComboboxOptions,
+      maxRounds: optionCaptureMaxRounds,
+      stagnantRounds: optionCaptureStagnantRounds,
       cache,
       onScroll: (progress) => onOptionCapture?.(field, { status: 'scroll', ...progress }),
       onOptionDiscovered: (option) => onOptionDiscovered?.(field, option),
     });
     field.options = captured.options;
     field.option_capture = captured.option_capture;
-    if (captured.option_capture.status === 'incomplete') field.coverage_status = 'options_incomplete';
+    if (captured.option_capture.status === 'incomplete' && field.type !== 'search_autocomplete') field.coverage_status = 'options_incomplete';
     await onOptionCapture?.(field, captured.option_capture);
   }
   const country = scan.fields.find((field) => /^country$/i.test(field.label));
+  const hasAddressDetails = scan.fields.some((field) => /address line 1|street address/i.test(field.label));
   const state = scan.fields.find((field) => /^state$|^state\/province$/i.test(field.label));
-  const county = scan.fields.find((field) => /^county$/i.test(field.label));
-  const postal = scan.fields.find((field) => /postal|zip/i.test(field.label));
-  const city = scan.fields.find((field) => /^city$/i.test(field.label));
-  if (country && state && (country.type === 'combobox' || country.type === 'native_select')) {
-    const unitedStates = (country.options || []).find((option) => /united states/i.test(option.label));
-    if (unitedStates) {
-      await chooseRegistryOption(page, country, unitedStates, settleMs).catch(() => {});
+
+  if (country && (country.type === 'combobox' || country.type === 'native_select')) {
+    const targetCountry = defaultCountry || 'United States';
+    const targetOption = (country.options || []).find((option) => new RegExp(escapeRegExp(targetCountry), 'i').test(option.label))
+      || { label: targetCountry, value: targetCountry };
+
+    // Select country to expand hidden address fields or trigger dynamic state options
+    if (!hasAddressDetails || state) {
+      await chooseRegistryOption(page, country, targetOption, settleMs).catch(() => {});
       await waitSettled(page, settleMs);
-      cache.delete(state.field_id);
-      const stateCapture = await scanRegistryOptions(page, state, { settleMs, maxRounds: optionCaptureMaxRounds, stagnantRounds: optionCaptureStagnantRounds, cache, onScroll: (progress) => onOptionCapture?.(state, { status: 'scroll', ...progress }) });
-      state.options = stateCapture.options;
-      state.option_capture = stateCapture.option_capture;
-      state.cascade_samples = [];
-      for (const sampleState of cascadeSampleStates) {
-        const sampleProfile = cascadeProfile[sampleState] || {};
-        const stateOption = state.options.find((option) => option.label.toLowerCase() === String(sampleState).toLowerCase());
-        if (!stateOption) { state.cascade_samples.push({ state: sampleState, status: 'unavailable' }); continue; }
-        await chooseRegistryOption(page, state, stateOption, settleMs).catch(() => {});
-        await waitSettled(page, settleMs);
-        const sample = { state: sampleState, status: 'captured' };
-        if (county) {
-          cache.delete(county.field_id);
-          const countyCapture = await scanRegistryOptions(page, county, { settleMs, maxRounds: optionCaptureMaxRounds, stagnantRounds: optionCaptureStagnantRounds, cache });
-          county.options = countyCapture.options;
-          county.option_capture = countyCapture.option_capture;
-          sample.county_options = county.options;
-          const countyOption = county.options.find((option) => option.label.toLowerCase() === String(sampleProfile.county || '').toLowerCase());
-          if (countyOption) await chooseRegistryOption(page, county, countyOption, settleMs).catch(() => {});
+
+      const updatedScan = await scanRegistryFields(page, { pageIndex, displayedSteps });
+      const knownIdentities = new Set(scan.fields.map(fieldIdentity));
+
+      for (const newField of updatedScan.fields) {
+        if (!knownIdentities.has(fieldIdentity(newField))) {
+          scan.fields.push(newField);
+          knownIdentities.add(fieldIdentity(newField));
+          await onFieldDiscovered?.(newField);
+
+          if (newField.locator?.interaction_safe && newField.type !== 'repeater') {
+            await onOptionCapture?.(newField, { status: 'started' });
+            const captured = await scanRegistryOptions(page, newField, {
+              settleMs,
+              captureComboboxOptions,
+              maxRounds: optionCaptureMaxRounds,
+              stagnantRounds: optionCaptureStagnantRounds,
+              cache,
+              onScroll: (progress) => onOptionCapture?.(newField, { status: 'scroll', ...progress }),
+              onOptionDiscovered: (option) => onOptionDiscovered?.(newField, option),
+            });
+            newField.options = captured.options;
+            newField.option_capture = captured.option_capture;
+            if (captured.option_capture.status === 'incomplete' && newField.type !== 'search_autocomplete') newField.coverage_status = 'options_incomplete';
+            await onOptionCapture?.(newField, captured.option_capture);
+          }
         }
-        if (postal) {
-          const postalTarget = locatorForRegistryField(page, postal);
-          await postalTarget.fill(sampleProfile.postalCode || '10001').catch(() => {});
+      }
+    }
+
+    const activeState = scan.fields.find((field) => /^state$|^state\/province$/i.test(field.label));
+    const activeCounty = scan.fields.find((field) => /^county$/i.test(field.label));
+    const activePostal = scan.fields.find((field) => /postal|zip/i.test(field.label));
+    const activeCity = scan.fields.find((field) => /^city$/i.test(field.label));
+
+    if (activeState) {
+      cache.delete(activeState.field_id);
+      const stateCapture = await scanRegistryOptions(page, activeState, {
+        settleMs,
+        captureComboboxOptions,
+        maxRounds: optionCaptureMaxRounds,
+        stagnantRounds: optionCaptureStagnantRounds,
+        cache,
+        onScroll: (progress) => onOptionCapture?.(activeState, { status: 'scroll', ...progress }),
+      });
+      activeState.options = stateCapture.options;
+      activeState.option_capture = stateCapture.option_capture;
+      activeState.cascade_samples = [];
+
+      if (activeState.options && activeState.options.length > 0) {
+        for (const sampleState of cascadeSampleStates) {
+          const sampleProfile = cascadeProfile[sampleState] || {};
+          const stateOption = activeState.options.find((option) => option.label.toLowerCase() === String(sampleState).toLowerCase());
+          if (!stateOption) { activeState.cascade_samples.push({ state: sampleState, status: 'unavailable' }); continue; }
+          await chooseRegistryOption(page, activeState, stateOption, settleMs).catch(() => {});
           await waitSettled(page, settleMs);
-          sample.postal_entered = true;
+          const sample = { state: sampleState, status: 'captured' };
+          if (activeCounty) {
+            cache.delete(activeCounty.field_id);
+            const countyCapture = await scanRegistryOptions(page, activeCounty, {
+              settleMs,
+              captureComboboxOptions,
+              maxRounds: optionCaptureMaxRounds,
+              stagnantRounds: optionCaptureStagnantRounds,
+              cache,
+            });
+            activeCounty.options = countyCapture.options;
+            activeCounty.option_capture = countyCapture.option_capture;
+            sample.county_options = activeCounty.options;
+            const countyOption = activeCounty.options.find((option) => option.label.toLowerCase() === String(sampleProfile.county || '').toLowerCase());
+            if (countyOption) await chooseRegistryOption(page, activeCounty, countyOption, settleMs).catch(() => {});
+          }
+          if (activePostal) {
+            const postalTarget = locatorForRegistryField(page, activePostal);
+            await postalTarget.fill(sampleProfile.postalCode || '10001').catch(() => {});
+            await waitSettled(page, settleMs);
+            sample.postal_entered = true;
+          }
+          if (activeCity) sample.city_value = await locatorForRegistryField(page, activeCity).inputValue().catch(() => '') || sampleProfile.city || '';
+          activeState.cascade_samples.push(sample);
         }
-        if (city) sample.city_value = await locatorForRegistryField(page, city).inputValue().catch(() => '') || sampleProfile.city || '';
-        state.cascade_samples.push(sample);
       }
     }
   }
+
   for (const field of scan.fields) {
     if (field.type === 'repeater') {
       await scanRegistryRepeater(page, field, {
         pageIndex,
         displayedSteps,
         settleMs,
+        captureComboboxOptions,
         optionCaptureMaxRounds,
         optionCaptureStagnantRounds,
         optionCache: cache,
@@ -530,21 +674,22 @@ async function scanRegistryPage(page, {
         await onFieldDiscovered?.(candidate);
       }
     }
-    for (const control of await choiceLocator(page, field).all()) {
-      const value = await control.getAttribute('value').catch(() => null);
-      const text = normalize(await control.textContent().catch(() => ''));
-      const shouldBeChecked = original.includes(value || text);
-      if (field.type === 'checkbox_group' || field.type === 'boolean_checkbox') {
+    if (field.type === 'single_choice') {
+      if (original.length) {
+        const restoreOption = field.options?.find((opt) => original.includes(opt.value) || original.includes(opt.label));
+        if (restoreOption) await chooseRegistryOption(page, field, restoreOption, settleMs).catch(() => {});
+      } else {
+        const firstValid = (field.options || []).find((opt) => !opt.disabled && opt.value);
+        if (firstValid) await chooseRegistryOption(page, field, firstValid, settleMs).catch(() => {});
+      }
+    } else if (field.type === 'checkbox_group' || field.type === 'boolean_checkbox') {
+      for (const control of await choiceLocator(page, field).all()) {
+        const value = await control.getAttribute('value').catch(() => null);
+        const text = normalize(await control.textContent().catch(() => ''));
+        const shouldBeChecked = original.includes(value || text);
         const checked = await control.isChecked().catch(async () => (await control.getAttribute('aria-checked')) === 'true');
-        if (checked !== shouldBeChecked) await control.click().catch(() => {});
-      } else if (shouldBeChecked) await control.click().catch(() => {});
-    }
-    if (field.type === 'single_choice' && !original.length) {
-      await choiceLocator(page, field).evaluateAll((items) => items.forEach((item) => {
-        if ('checked' in item) item.checked = false;
-        item.setAttribute('aria-checked', 'false');
-        item.dispatchEvent(new Event('change', { bubbles: true }));
-      })).catch(() => {});
+        if (checked !== shouldBeChecked) await control.click({ timeout: 2000, force: true }).catch(() => {});
+      }
     }
     field.coverage_status = field.coverage_status === 'options_incomplete' ? field.coverage_status : 'options_scanned';
   }

@@ -1,0 +1,13 @@
+{
+  "total_jobs": 1,
+  "completed_jobs": 0,
+  "incomplete_jobs": 1,
+  "outcomes": [
+    {
+      "job_id": "job-1",
+      "company": "Pike Corporation",
+      "status": "failed",
+      "error": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:has-text(\"Apply Now\"), a:has-text(\"Apply Now\"), button:has-text(\"Apply\")').first() to be visible\u001b[22m\n"
+    }
+  ]
+}

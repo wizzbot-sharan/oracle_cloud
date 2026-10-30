@@ -3,10 +3,25 @@ const assert = require('node:assert/strict');
 
 const { extractOtpCode, otpParseDiagnostic, shouldAcceptVerificationMessage } = require('../../src/integrations/zoho/mailbox');
 
-test('does not use a general Oracle verification email for a different tenant-scoped job', () => {
+test('accepts no-reply@oracle.com as a valid verification sender alongside tenant/company matching', () => {
+  assert.equal(shouldAcceptVerificationMessage({
+    from: 'no-reply@oracle.com',
+    subject: 'Your Oracle identity verification',
+    company: 'Tradeweb',
+    tenant: 'ecnf',
+  }), true);
   assert.equal(shouldAcceptVerificationMessage({
     from: 'noreply@oracle.com',
     subject: 'Your Oracle identity verification',
+    company: 'Tradeweb',
+    tenant: 'ecnf',
+  }), true);
+});
+
+test('rejects unrelated non-verification emails', () => {
+  assert.equal(shouldAcceptVerificationMessage({
+    from: 'marketing@newsletter.com',
+    subject: 'Weekly Deals',
     company: 'Tradeweb',
     tenant: 'ecnf',
   }), false);

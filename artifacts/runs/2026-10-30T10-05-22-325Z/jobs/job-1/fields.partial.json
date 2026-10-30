@@ -1,0 +1,12 @@
+{
+  "job_id": "job-1",
+  "company": "Holland America Line",
+  "verification_company": "Holland America Line",
+  "title": "Sr. Analyst, Compensation (Corporate)",
+  "url": "[redacted-url]",
+  "qa_key": "[redacted-url]",
+  "status": "failed",
+  "pages": [],
+  "fields": [],
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[id=\"timeline-add-education-button\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" id=\"timeline-add-education-button\" class=\"work-and-education-timeline-add-button timeline-education-add-button apply-flow-profile-item-button apply-flow-profile-item-button--add\" data-bind=\"click: addEducationProfileItem,↵                       attr: {'data-profile-item-invalid': showTimeline() ? isBlockRequired && !isEducationValid() : false}\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+}

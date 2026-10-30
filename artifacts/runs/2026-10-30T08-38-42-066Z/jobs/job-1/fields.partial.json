@@ -1,0 +1,12 @@
+{
+  "job_id": "job-1",
+  "company": "Pike Corporation",
+  "verification_company": "Pike Corporation",
+  "title": "Business Operations Analyst II",
+  "url": "[redacted-url]",
+  "qa_key": "[redacted-url]",
+  "status": "failed",
+  "pages": [],
+  "fields": [],
+  "error": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:has-text(\"Apply Now\"), a:has-text(\"Apply Now\"), button:has-text(\"Apply\")').first() to be visible\u001b[22m\n"
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Oracle Timeline Test Fixture</title>
+  <style>
+    .work-and-education-timeline__actions-container--disabled {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section aria-label="Work and Education">
+      <div class="timeline-container">
+        <div id="timeline-anchor" class="input-row__control-container work-and-education-timeline__actions-container">
+          <div class="work-and-education-timeline__actions">
+            <button id="timeline-add-experience-button" type="button" class="work-and-education-timeline-add-button timeline-work-add-button">
+              <span class="apply-flow-profile-item-button__label">Add Experience</span>
+            </button>
+            <button id="timeline-add-education-button" type="button" class="work-and-education-timeline-add-button timeline-education-add-button">
+              <span class="apply-flow-profile-item-button__label">Add Education</span>
+            </button>
+          </div>
+        </div>
+
+        <timeline-form-inline>
+          <div id="experience-form-container" style="display: none;">
+            <div class="standard-apply-flow-timeline-form">
+              <div class="timeline-form-content">
+                <form novalidate="">
+                  <div class="input-row input-row--text">
+                    <label for="employerName-63">Employer Name</label>
+                    <input id="employerName-63" name="employerName" required>
+                  </div>
+                  <div class="input-row input-row--text">
+                    <label for="jobTitle-64">Job Title</label>
+                    <input id="jobTitle-64" name="jobTitle">
+                  </div>
+                </form>
+              </div>
+              <div class="timeline-form-footer">
+                <div class="app-dialog__buttons-bar">
+                  <button type="button" class="button app-dialog__footer-button cancel-btn">
+                    <span class="button__label">Cancel</span>
+                  </button>
+                  <button type="button" class="button app-dialog__footer-button save-btn">
+                    <span class="button__label">Save</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="education-form-container" style="display: none;">
+            <div class="standard-apply-flow-timeline-form">
+              <div class="timeline-form-content">
+                <form novalidate="">
+                  <div class="input-row input-row--text">
+                    <label for="school-70">School</label>
+                    <input id="school-70" name="school" required>
+                  </div>
+                  <div class="input-row input-row--text">
+                    <label for="degree-71">Degree</label>
+                    <input id="degree-71" name="degree">
+                  </div>
+                </form>
+              </div>
+              <div class="timeline-form-footer">
+                <div class="app-dialog__buttons-bar">
+                  <button type="button" class="button app-dialog__footer-button cancel-btn">
+                    <span class="button__label">Cancel</span>
+                  </button>
+                  <button type="button" class="button app-dialog__footer-button save-btn">
+                    <span class="button__label">Save</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </timeline-form-inline>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const anchor = document.querySelector('#timeline-anchor');
+    const expForm = document.querySelector('#experience-form-container');
+    const eduForm = document.querySelector('#education-form-container');
+
+    document.querySelector('#timeline-add-experience-button').addEventListener('click', () => {
+      anchor.classList.add('work-and-education-timeline__actions-container--disabled');
+      expForm.style.display = 'block';
+    });
+
+    document.querySelector('#timeline-add-education-button').addEventListener('click', () => {
+      anchor.classList.add('work-and-education-timeline__actions-container--disabled');
+      eduForm.style.display = 'block';
+    });
+
+    expForm.querySelector('.cancel-btn').addEventListener('click', () => {
+      expForm.style.display = 'none';
+      anchor.classList.remove('work-and-education-timeline__actions-container--disabled');
+    });
+
+    eduForm.querySelector('.cancel-btn').addEventListener('click', () => {
+      eduForm.style.display = 'none';
+      anchor.classList.remove('work-and-education-timeline__actions-container--disabled');
+    });
+  </script>
+</body>
+</html>
