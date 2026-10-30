@@ -1,12 +1,11 @@
 node_modules/
 .env
 .DS_Store
-spike/results/question-scans/
 artifacts/
 archive/
 .playwright-mcp/
 .env.example
-docs/superpowers
-.superpowers/sdd
+docs/
+.superpowers/
 .agent-context/
-.agents
+.agents/
