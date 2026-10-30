@@ -9,4 +9,4 @@ archive/
 docs/superpowers
 .superpowers/sdd
 .agent-context/
-.agents/skills
+.agents
