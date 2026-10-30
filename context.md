@@ -1,10 +1,18 @@
-# Oracle Cloud Applier — Working Context
+# Oracle Cloud Applier — Current Context
 
-Last updated: 2026-10-30
+Last updated: 2026-10-30 (session wrap-up)
 
 ## Purpose
 
 This project scans Oracle Cloud HCM applications for multiple users, records each question and option, and later supports dashboard review. Submission is never automatic: only an approved application may submit.
+
+## Documentation contract
+
+- `context.md` is the authoritative current technical snapshot. It is overwritten on every `wrap up`.
+- `STATE.md` is the short operational handoff: what is done, blocked, and next.
+- `DECISIONS.md` is append-only and records durable choices with their reasons.
+- `PROJECT.md` describes the product goal and clearly separates current implementation from planned production work.
+- Historical plans and designs under `docs/superpowers/` explain past reasoning; they do not override this file.
 
 ## Active workflow
 
@@ -51,6 +59,19 @@ This project scans Oracle Cloud HCM applications for multiple users, records eac
 - `npm test` runs the cleaned active suite with one test worker.
 - `npm run test:scanner` runs the active scanner fixture suite.
 - A headed live validation must use concurrency 1, must not click Submit, and must be reviewed in the viewer before the scan is treated as accepted.
+
+## Current status and next validation
+
+- The active migration from legacy spikes is complete: no active code imports archived files.
+- Fixture and static checks cover scanning, evidence, QA replacement, authentication, CAPTCHA checkpoints, circuit breaking, and viewer isolation.
+- The prior Safeway scan reached visible Submit without clicking it and remains the current accepted QA evidence.
+- A new complete headed validation is still required after bounding the large address-autocomplete crawl; the interrupted post-repair run made no QA or evidence changes.
+
+## Session wrap-up
+
+- Completed the scan-pipeline repair: immutable per-job evidence rejects collisions, QA validates manifest-backed screenshots before replacement, magic-link URLs are redacted, and viewer artifacts require the selected job plus its manifest.
+- Verified focused evidence, QA, runner, viewer, scanner, registry, Zoho, and authentication fixtures; active JavaScript syntax checks also pass.
+- Documentation is now maintained by contract: `context.md` is refreshed on every wrap-up, `STATE.md` records operational handoff, and `DECISIONS.md` keeps durable choices.
 
 ## Stack
 

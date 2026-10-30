@@ -7,18 +7,19 @@ Apply to jobs on Oracle Cloud (HCM Candidate Experience) career sites on behalf 
 ~200 users now, up to ~1000 later. Who the users are doesn't matter to the code; each has a `user_id`.
 
 ## Stack
-Node.js + Playwright | React.js dashboard | Azure PostgreSQL | Railway | .env / Railway Variables
+Current scanner: Node.js + Playwright with JSON QA artifacts and a local read-only viewer. Planned product: React.js dashboard, Azure PostgreSQL, Railway, and `.env` locally / Railway Variables in production.
 
-## Data (all in the database)
+## Data
+Current scan-stage data lives in `data/job-urls.json`, `data/qa.json`, and masked evidence artifacts. The planned database will store:
 - Per-user info: mostly answers stored as columns, plus a resume link.
 - Per-user job list.
 - A questions table that grows: any new question the bot meets gets added.
-- Everything keyed by `user_id`. Schema draft in docs/DB_SCHEMA.md.
+- Everything keyed by `user_id`.
 
 ## Two-phase workflow
 1. SCAN: open job URL, log in with a dummy email (OTP if asked), walk the whole application, extract every question.
 2. RESOLVE: for each question, try to fill from user info, then resume, then saved answers, then matching algorithms (docs/MATCHING.md).
-3. DASHBOARD: unresolved questions are shown. I answer them. Answers are saved per user and reusable.
+3. DASHBOARD: the current local viewer reconstructs scanned controls in browser memory only. The planned dashboard will show unresolved questions, save answers per user, and reuse them.
 4. SUBMIT: reopen the URL, log in with the user's real credentials, fill everything, stop at the review step, show it in the dashboard.
 5. APPROVE: only after I click Approve does the bot press submit.
 6. Repeat per user.

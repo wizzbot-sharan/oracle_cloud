@@ -13,7 +13,7 @@
 - Be concise. Don't restate my message. No long preambles.
 
 ## Session end
-- On "wrap up": overwrite STATE.md, append new decisions (with the why) to DECISIONS.md. Max 3 lines per entry.
+- On "wrap up": overwrite `context.md` with the current technical snapshot, overwrite `STATE.md` with current operational status, and append only new decisions (with the why) to `DECISIONS.md`. Max 3 lines per decision entry.
 
 ## Stack (do not change without asking)
 Node.js + Playwright (bot) | React.js (dashboard) | Azure PostgreSQL | Railway hosting | .env locally, Railway Variables in prod.
@@ -30,7 +30,7 @@ Node.js + Playwright (bot) | React.js (dashboard) | Azure PostgreSQL | Railway h
 ## Code conventions
 - Small modules, one job each. Comments explain why, not what.
 - All site selectors live in one file per site (`src/sites/oracle/selectors.js`). Prefer getByRole / getByLabel over brittle CSS.
-- Every step logs `{user_id, job_id, step, result}`. Screenshot on every failure and on submit.
+- Every step logs `{user_id, job_id, step, result}`. Screenshot on every failure and when Submit becomes visible; the scanner must never click Submit.
 - Config comes only from environment variables.
 
 keep this in mind as well:

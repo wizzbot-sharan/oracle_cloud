@@ -17,3 +17,4 @@
 - 2026-10-28: The dashboard remains display-only; repeaters use inactive Oracle-style previews. Why: the viewer should mirror scanned form structure without changing local or Oracle application state.
 - 2026-10-28: Group custom Oracle radio/checkbox buttons by the stable question container, not the option label or global index. Why: one safe, scoped field record preserves all options and prevents cross-question filling.
 - 2026-10-28: Repeater schemas are sampled once and rendered inactive in the viewer. Why: repeated entries share a schema, while the viewer must remain evidence-only.
+- 2026-10-30: `context.md` is the overwritten authoritative technical snapshot; `STATE.md` is the short operational handoff; `DECISIONS.md` remains append-only. Why: keeps current instructions easy to find without losing decision history.

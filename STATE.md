@@ -1,4 +1,4 @@
-# State (last updated: 2026-10-30)
+# State (last updated: 2026-10-30, session wrap-up)
 
 ## Done
 - `scan-login` authentication, email/OTP/magic-link flow, manual-form entry, and no-submit safeguards are implemented.
@@ -6,14 +6,15 @@
 - Scanner records JET host metadata, semantic types, stable container fingerprints, conditional parents, and marks unsafe controls as unclassified instead of clicking a global fallback.
 - Local scanner tests cover JET controls, option discovery, partial-result preservation, slow interaction settling, authentication, and OTP parsing diagnostics.
 - OTP parser supports common labelled and spaced-code layouts; unresolved matched emails emit structure-only diagnostics with no body or OTP.
+- The legacy-to-active migration is complete: active runtime and tests do not import archived files.
+- Pipeline repair is complete in static and fixture verification: immutable evidence, manifest-backed QA, masked URL diagnostics, selected-job viewer access, and circuit-breaker behavior are covered.
 
 ## In progress
-- Run one complete post-repair headed validation. The repaired pipeline now uses immutable per-job evidence, strict QA validation, selected-job viewer access, masked URL diagnostics, and the two-issue circuit breaker; fixture/static verification is complete.
-- Continue per-company OTP cooldown/rate-limit work, then resume DB schema and resolver work.
+- Run one complete post-repair headed validation after bounding the address-autocomplete crawl.
 
 ## Next
-1. Run one complete post-repair headed validation and compare it in the viewer; unclassified controls must remain visible as evidence and must not be filled.
-2. Investigate/bound the slow exhaustive address-autocomplete crawl before treating that live validation as production acceptance.
+1. Bound the slow exhaustive address-autocomplete crawl.
+2. Run one complete headed validation and compare it in the viewer; unclassified controls remain evidence-only.
 3. Continue per-company OTP cooldown/rate-limit work, then resume DB schema and resolver work.
 
 ## Known limitations

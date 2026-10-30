@@ -4,3 +4,9 @@ node_modules/
 spike/results/question-scans/
 artifacts/
 archive/legacy-2026-10-30/
+.playwright-mcp/
+.env.example
+docs/superpowers
+.superpowers/sdd
+.agent-context/
+.agents/skills
