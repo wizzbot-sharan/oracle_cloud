@@ -1,0 +1,32 @@
+[
+  {
+    "sequence": 1,
+    "user_id": "scan_trial",
+    "job_id": "headed-validation-safeway-785103",
+    "worker_id": 1,
+    "page": 0,
+    "step": "application_ready",
+    "kind": "application_ready",
+    "file": "screenshots/00001-headed-validation-safeway-785103-application_ready.png"
+  },
+  {
+    "sequence": 2,
+    "user_id": "scan_trial",
+    "job_id": "headed-validation-safeway-785103",
+    "worker_id": 1,
+    "page": 1,
+    "step": "page_scan",
+    "kind": "page",
+    "file": "screenshots/00002-headed-validation-safeway-785103-page_scan.png"
+  },
+  {
+    "sequence": 3,
+    "user_id": "scan_trial",
+    "job_id": "headed-validation-safeway-785103",
+    "worker_id": 1,
+    "page": 1,
+    "step": "submit_visible",
+    "kind": "submit",
+    "file": "screenshots/00003-headed-validation-safeway-785103-submit_visible.png"
+  }
+]

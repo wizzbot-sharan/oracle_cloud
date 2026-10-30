@@ -1,11 +1,6 @@
 node_modules/
 .env
 .DS_Store
-artifacts/
 archive/
 .playwright-mcp/
-.env.example
-docs/
 .superpowers/
-.agent-context/
-.agents/
