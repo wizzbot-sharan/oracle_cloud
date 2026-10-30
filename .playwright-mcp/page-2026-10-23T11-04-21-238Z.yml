@@ -1,0 +1,39 @@
+- generic [active] [ref=e1]:
+  - generic [aria-hidden] [ref=e2]:
+    - generic [ref=e3]: .
+    - generic [ref=e4]: ..
+    - generic [ref=e5]: .
+  - generic [ref=e7]:
+    - link "Skip to main content." [ref=e78] [cursor=pointer]:
+      - /url: "#main"
+    - generic:
+      - alert
+    - generic [ref=e80]:
+      - banner [ref=e82]:
+        - generic [ref=e84]:
+          - link "Back to Job Details" [ref=e85] [cursor=pointer]:
+            - generic [ref=e86]: 
+          - tooltip "IT Service Delivery Manager ..." [ref=e87]:
+            - generic [ref=e88]:
+              - generic [ref=e89]: IT Service Delivery Manager
+              - generic [ref=e90]: ...
+      - main [ref=e92]:
+        - heading "Job application form" [level=1] [ref=e93]
+        - generic [ref=e95]:
+          - heading "Authentication screen. You don't need to have an account" [level=1] [ref=e97]:
+            - generic: Authentication screen.
+            - text: You don't need to have an account
+          - generic [ref=e98]:
+            - paragraph [ref=e99]: Get started right away by simply using your email. Your profile will be created and kept up to date automatically as you enter details for each of your job applications.
+            - generic [ref=e101]:
+              - generic [ref=e102]:
+                - generic "Email Address" [ref=e104]:
+                  - generic [aria-hidden] [ref=e106]: "*"
+                - textbox "Email Address" [ref=e108]
+              - generic:
+                - generic: honeypot
+                - textbox [aria-hidden] [ref=e112]
+              - generic [ref=e113]: This is how we'll communicate with you.
+          - generic [ref=e114]:
+            - button "Cancel" [ref=e115] [cursor=pointer]
+            - button "Next" [ref=e118] [cursor=pointer]

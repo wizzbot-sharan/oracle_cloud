@@ -1,0 +1,32 @@
+<main id="application-form">
+  <section><h2>Application Questions</h2>
+    <div class="input-row" id="title-question" aria-required="true">
+      <label>Title</label>
+      <div class="pills"><button role="radio" data-value="doctor">Doctor</button><button role="radio" data-value="miss">Miss</button><button role="radio" data-value="mr">Mr.</button><button role="radio" data-value="mrs">Mrs.</button><button role="radio" data-value="ms">Ms.</button></div>
+    </div>
+    <div class="input-row" id="authorization-question">
+      <p>Are you legally authorized to work?</p>
+      <div class="pills"><button role="radio" data-value="yes">Yes</button><button role="radio" data-value="no">No</button></div>
+    </div>
+    <div class="input-row" id="sponsorship-question">
+      <p>Will you require sponsorship?</p>
+      <div class="pills"><button role="radio" data-value="yes">Yes</button><button role="radio" data-value="no">No</button></div>
+    </div>
+    <div class="input-row" id="projects-question">
+      <label>Projects</label>
+      <div class="pills"><button role="checkbox" data-value="alpha">Alpha</button><button role="checkbox" data-value="beta">Beta</button></div>
+    </div>
+    <div class="input-row" id="links-question"><button type="button">+ Add Another Link</button></div>
+    <div><button type="button" role="radio">Unsafe choice</button></div>
+  </section>
+</main>
+<script>
+  document.querySelectorAll('[role="radio"]').forEach((button) => button.addEventListener('click', () => {
+    const row = button.closest('.input-row');
+    row?.querySelectorAll('[role="radio"]').forEach((item) => item.setAttribute('aria-checked', String(item === button)));
+  }));
+  document.querySelector('#links-question button').addEventListener('click', () => {
+    document.querySelector('#links-question').insertAdjacentHTML('beforeend', '<div id="link-row"><label for="link-url">Link URL</label><input id="link-url"><button type="button">Remove</button></div>');
+    document.querySelector('#link-row button').addEventListener('click', () => document.querySelector('#link-row').remove());
+  });
+</script>

@@ -1,0 +1,2 @@
+Synthetic resume fixture for the Oracle application question scanner.
+This file contains no real candidate data and must never be submitted.

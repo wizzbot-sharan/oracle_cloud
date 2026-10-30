@@ -1,0 +1,2 @@
+[     725ms] [ERROR] Access to fetch at 'https://fa-ewlq-saasfaprod1.fa.ocs.oraclecloud.com/hcmRestApi/CandidateExperience/translations?language=en' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ about:blank:0
+[     726ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://fa-ewlq-saasfaprod1.fa.ocs.oraclecloud.com/hcmRestApi/CandidateExperience/translations?language=en:0

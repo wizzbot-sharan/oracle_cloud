@@ -1,0 +1,70 @@
+<main id="application-form">
+  <section aria-label="Contact Information">
+    <div class="input-row">
+      <label for="firstName-1">First Name</label><input id="firstName-1" class="input-row__control" required>
+    </div>
+    <div class="input-row input-row--has-picker">
+      <label for="country-1">Country</label>
+      <input id="country-1" role="combobox" aria-controls="country-1-listbox" aria-haspopup="grid">
+      <div role="grid" id="country-1-listbox" hidden style="max-height:100px;overflow:auto">
+        <div role="row"><div role="gridcell" class="cx-select__list-item">United States</div></div>
+        <div role="row"><div role="gridcell" class="cx-select__list-item">Canada</div></div>
+        <div role="row"><div role="gridcell" class="cx-select__list-item">India</div></div>
+      </div>
+    </div>
+    <div class="input-row input-row--with-placeholder input-row--has-picker">
+      <label id="phone-group-label" for="country-code-phone">Phone Number</label>
+      <div class="input-row-composite__inputs phone-row" role="group" aria-labelledby="phone-group-label">
+        <div class="input-row-composite__input phone-row__prefix">
+          <span class="input-field__label">Country code</span>
+          <input id="country-code-phone" role="combobox" aria-controls="country-code-phone-listbox" aria-labelledby="phone-group-label country-code-label">
+          <span id="country-code-label">Country code</span>
+          <div role="grid" id="country-code-phone-listbox" hidden><div role="gridcell">+1</div><div role="gridcell">+44</div></div>
+        </div>
+        <div class="input-row-composite__input phone-row__number"><input id="phone-number" type="tel" aria-label="Phone Number"></div>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Questions">
+    <div class="input-row input-row--radiogroup" role="group" aria-labelledby="ethnicity-label">
+      <label id="ethnicity-label">Ethnicity</label>
+      <div class="input-row__control-container"><input type="checkbox" id="ethnicity-1" aria-labelledby="ethnicity-option"><label id="ethnicity-option" for="ethnicity-1">I am Hispanic or Latino</label></div>
+    </div>
+    <div class="input-row input-row--radiogroup" role="group" aria-labelledby="race-label">
+      <label id="race-label">Select the races you identify with.</label>
+      <div class="input-row__control-container">
+        <div><input type="checkbox" id="race-1"><label for="race-1">Asian</label></div>
+        <div><input type="checkbox" id="race-2"><label for="race-2">White</label></div>
+      </div>
+    </div>
+    <div class="input-row">
+      <label for="title-label">Title</label>
+      <ul role="radiogroup" aria-label="Title" id="title-group">
+        <li><button type="button" role="radio" aria-checked="false">Doctor</button></li>
+        <li><button type="button" role="radio" aria-checked="false">Ms.</button></li>
+      </ul>
+    </div>
+  </section>
+  <section aria-label="Education">
+    <div class="profile-item-container">
+      <button type="button" class="apply-flow-profile-item-tile__new-tile"><span class="button__label">Add Education</span></button>
+    </div>
+  </section>
+  <section aria-label="Uploads">
+    <resume-upload-button><input type="file" id="attachment-upload-77" multiple accept=".pdf" aria-required="true"><label for="attachment-upload-77">Upload Resume</label></resume-upload-button>
+  </section>
+</main>
+<script>
+  document.querySelector('#country-1').addEventListener('click', () => document.querySelector('#country-1-listbox').hidden = false);
+  document.querySelectorAll('[role="gridcell"]').forEach((item) => item.addEventListener('click', () => {
+    const input = document.querySelector('#country-1'); input.value = item.textContent.trim(); document.querySelector('#country-1-listbox').hidden = true;
+  }));
+  document.querySelector('.apply-flow-profile-item-tile__new-tile').addEventListener('click', (event) => {
+    const section = event.target.closest('.profile-item-container');
+      section.insertAdjacentHTML('beforeend', '<div class="profile-item-content--form"><div class="input-row"><label for="school-1">School</label><input id="school-1"></div><div class="input-row"><label for="degree-1">Degree</label><input id="degree-1" role="combobox" aria-controls="degree-1-listbox"><div role="grid" id="degree-1-listbox" hidden><div role="gridcell">Bachelor</div><div role="gridcell">Master</div></div></div><button class="cancel-btn">Cancel</button></div>');
+  });
+  document.addEventListener('click', (event) => { if (event.target.matches('.cancel-btn')) event.target.closest('.profile-item-content--form').remove(); });
+  document.addEventListener('click', (event) => {
+    if (event.target.matches('#degree-1')) document.querySelector('#degree-1-listbox').hidden = false;
+  });
+</script>

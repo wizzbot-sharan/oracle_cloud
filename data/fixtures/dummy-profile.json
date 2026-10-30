@@ -1,0 +1,13 @@
+{
+  "firstName": "Test",
+  "lastName": "Candidate",
+  "fullName": "Test Candidate",
+  "phone": "2025550100",
+  "genericText": "Synthetic scanner value",
+  "date": "2000-01-01",
+  "addressSamples": {
+    "California": { "county": "Los Angeles", "postalCode": "90001", "city": "Los Angeles" },
+    "New York": { "county": "New York", "postalCode": "10001", "city": "New York" },
+    "Texas": { "county": "Dallas", "postalCode": "75201", "city": "Dallas" }
+  }
+}

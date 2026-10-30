@@ -1,0 +1,24 @@
+<main id="application-form">
+  <section>
+    <h2>Application Questions</h2>
+    <div class="question" id="citizenship-question">
+      <oj-input-text id="citizenship-host" label-hint="Citizenship" required="true" validators="[{&quot;type&quot;:&quot;regExp&quot;}]">
+        <label for="citizenship">Citizenship</label>
+        <input id="citizenship" required aria-describedby="citizenship-help">
+      </oj-input-text>
+      <span id="citizenship-help">Enter your country of citizenship.</span>
+    </div>
+    <div class="question" data-oj-choice-group aria-labelledby="work-auth-label">
+      <p id="work-auth-label">Are you authorized to work?</p>
+      <div role="radiogroup" aria-labelledby="work-auth-label" aria-required="true">
+        <button type="button" role="radio" aria-checked="false" data-value="yes">Yes</button>
+        <button type="button" role="radio" aria-checked="false" data-value="no">No</button>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+  document.querySelectorAll('[role="radio"]').forEach((button) => button.addEventListener('click', () => {
+    document.querySelectorAll('[role="radio"]').forEach((item) => item.setAttribute('aria-checked', String(item === button)));
+  }));
+</script>

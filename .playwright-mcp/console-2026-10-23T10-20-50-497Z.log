@@ -1,0 +1,96 @@
+[    1965ms] [WARNING] BASE_URL_ATTR "data-base-url" not found @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    1970ms] [INFO] No translation for key: apply-flow.communication-channel.sms-button-label (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    1970ms] [INFO] No translation for key: apply-flow.communication-channel.whatsapp-button-label (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    1975ms] [INFO] No translation for key: apply-flow.validation.duplicate-prefered-skill (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    1981ms] [INFO] No translation for key: admin.site-editor.search-settings.suggestion-panel-message (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2442ms] [WARNING] Unknown global setting - ORA_IRC_CE_GJS_ENABLED @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2442ms] [WARNING] Unknown global setting - ORA_IRC_USER_TRACKING_ENABLE @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2442ms] [WARNING] Unknown global setting - ORA_IRC_NUMBER_OF_JOBS_TO_BE_LOADED_ON_MAP @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2442ms] [WARNING] Unknown global setting - ORA_IRC_FALLBACK_TO_SPRING @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2442ms] [WARNING] Unknown global setting - IRC_CE_USE_MODERN_TEMPLATE @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2442ms] [WARNING] Unknown global setting - ORA_IRC_EXWKR_CWKEXT_CITIZENSHIP_UPDATE_RECRUITER @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2442ms] [WARNING] Unknown global setting - IRC_CE_AGENT_STARTER_MESSAGE @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2442ms] [WARNING] Unknown global setting - IRC_CE_CAREER_COACH_AGENT_CODE @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2442ms] [WARNING] Unknown global setting - IRC_CE_ENHANCE_MODE_ENABLED @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2596ms] [INFO] No translation for key: admin.ai-assistant-editor.header-background-color-label (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2603ms] [INFO] No translation for key: Skip to main content. (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2633ms] Uncaught ReferenceError: Unable to process binding "if: function(){return enabled }"
+Message: Unable to process binding "if: function(){return (templateExists && customHtml() === false) }"
+Message: Unable to process binding "template: function(){return { name:'custom-header'} }"
+Message: Unable to process binding "attr: function(){return {'src':logo} }"
+Message: logo is not defined
+    at attr (:2:70)
+    at n (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5941189)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5942267)
+    at update (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5952208)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5943467)
+    at yd (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5931277)
+    at zd (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5930963)
+    at ha (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5930800)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5929552)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5943453)
+    at D (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5908518)
+    at h (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5942973)
+    at p (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5941722)
+    at d (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5941603)
+    at p (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5941781)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5946322)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5966625)
+    at e (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5966254)
+    at t (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5966572)
+    at n (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5967229)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5967819)
+    at yd (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5931277)
+    at zd (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5930963)
+    at ha (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5930800)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5929552)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5967706)
+    at update (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5969605)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5943467)
+    at yd (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5931277)
+    at zd (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5930963)
+    at ha (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5930800)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5929552)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5943453)
+    at D (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5908518)
+    at h (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5942973)
+    at p (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5941722)
+    at d (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5941603)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5945975)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5956197)
+    at yd (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5931277)
+    at zd (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5930963)
+    at ha (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5930800)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5929552)
+    at init (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5955924)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5943180)
+    at G (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5924190)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5943160)
+    at D (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5908518)
+    at h (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5942973)
+    at p (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5941722)
+    at d (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5941603)
+    at p (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5941781)
+    at d (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5941603)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5945975)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5956197)
+    at yd (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5931277)
+    at zd (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5930963)
+    at ha (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5930800)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5929552)
+    at init (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5955924)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5943180)
+    at G (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5924190)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5943160)
+    at D (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5908518)
+    at h (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5942973)
+    at p (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5941722)
+    at d (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5941603)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5945975)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5952042)
+    at notifySubscribers (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5922650)
+    at <anonymous> (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5947055)
+    at e (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5920244)
+    at t (https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1:5920282)
+[    3521ms] [ERROR] job-expired @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[   12540ms] [ERROR] undefined @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1

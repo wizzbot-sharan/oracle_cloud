@@ -1,0 +1,13 @@
+<main id="application-form">
+  <section><h2>Application Questions</h2>
+    <div class="question" id="title-question"><oj-buttonset-one label-hint="Preferred title"><span id="title-label">Preferred title</span><div role="radiogroup" aria-labelledby="title-label"><button role="radio" data-value="mr">Mr</button><button role="radio" data-value="ms">Ms</button></div></oj-buttonset-one></div>
+    <div class="question" id="pill-question"><oj-buttonset-one label-hint="Availability"><span id="pill-label">Availability</span><div role="group" data-oj-choice-group aria-labelledby="pill-label"><button data-value="now">Now</button><button data-value="later">Later</button></div></oj-buttonset-one></div>
+    <div class="question" id="project-question"><oj-buttonset-many label-hint="Projects"><span id="project-label">Projects</span><div role="group" data-oj-choice-group aria-labelledby="project-label"><button role="checkbox" data-value="a">A</button><button role="checkbox" data-value="b">B</button></div></oj-buttonset-many></div>
+    <div class="question" id="status-question"><oj-select-one label-hint="Work status"><label for="status">Work status</label><input id="status" role="combobox"></oj-select-one></div>
+    <div class="question" id="phone-question"><oj-input-phone label-hint="Phone"><label for="phone">Phone</label><input id="phone" type="tel"></oj-input-phone></div>
+    <div class="question" id="essay-question"><oj-text-area label-hint="Why this role"><label for="essay">Why this role</label><textarea id="essay"></textarea></oj-text-area></div>
+    <div class="question" id="upload-question"><oj-file-picker label-hint="Resume"><label for="resume">Resume</label><input id="resume" type="file"></oj-file-picker></div>
+    <div class="question" id="date-question"><span id="date-label">Availability date</span><div role="group" aria-labelledby="date-label"><select aria-label="Month"><option>Jan</option></select><select aria-label="Day"><option>1</option></select><select aria-label="Year"><option>2026</option></select></div></div>
+    <div><button type="button" role="radio">Unscoped choice</button></div>
+  </section>
+</main>

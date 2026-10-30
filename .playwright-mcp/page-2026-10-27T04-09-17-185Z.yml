@@ -1,0 +1,72 @@
+- generic [ref=f3e1]:
+  - dialog "Important Privacy Information" [ref=f3e325]:
+    - generic [active] [ref=f3e330]:
+      - button "Close" [ref=f3e332] [cursor=pointer]: 
+      - heading "Important Privacy Information" [level=1] [ref=f3e334]
+      - generic [ref=f3e336]:
+        - paragraph [ref=f3e337]:
+          - text: Honeywell International, Inc. and its affiliates (collectively “Honeywell”, "us" or “we”), as data controllers, will use your personal information to process your application. We analyze your information to improve our recruitment processes and may use automated decision making to carry out a first screening of the applications received (i.e. we use an algorithm to scan the information you provided against required criteria for the position). For more information on how we process your personal information including automated decision-making, profiling and international transfers please see our
+          - link "Applicant Privacy Notice" [ref=f3e338] [cursor=pointer]:
+            - /url: https://s3.us-east-1.amazonaws.com/careers.honeywell.com/Recruitment_Privacy_Notice_EN_US.pdf
+          - text: .
+        - paragraph [ref=f3e339]:
+          - text: Your rights. To exercise your data subject rights under applicable law (such as access, correction, or erasure of your information, to restrict or object to its processing, to withdraw your consent or object to automated decision-making (including profiling)) please submit a request form at
+          - link "www.honeywell.com/en-us/privacy-statement" [ref=f3e340] [cursor=pointer]:
+            - /url: https://www.honeywell.com/us/en/privacy-statement
+          - text: or send an email to
+          - generic [ref=f3e341]: Honeywellprivacy@honeywell.com
+          - text: .
+        - generic [ref=f3e342]:
+          - text: By clicking the box below you confirm that you have read our
+          - link "Applicant Privacy Notice" [ref=f3e343] [cursor=pointer]:
+            - /url: https://s3.us-east-1.amazonaws.com/careers.honeywell.com/Recruitment_Privacy_Notice_EN_US.pdf
+          - text: .
+      - button "ACCEPT" [ref=f3e346] [cursor=pointer]
+  - generic [aria-hidden] [ref=f3e2]:
+    - generic [ref=f3e3]: .
+    - generic [ref=f3e4]: ..
+    - generic [ref=f3e5]: .
+  - generic [aria-hidden] [ref=f3e7]:
+    - link [ref=f3e349] [cursor=pointer]:
+      - /url: "#main"
+      - text: Skip to main content.
+    - alert
+    - generic [ref=f3e274]:
+      - banner [ref=f3e276]:
+        - generic [ref=f3e278]:
+          - link [ref=f3e350] [cursor=pointer]:
+            - generic [ref=f3e280]: 
+          - tooltip [ref=f3e351]:
+            - generic [ref=f3e282]:
+              - generic [ref=f3e283]: Advanced Data Scientist
+              - generic [ref=f3e284]: ...
+      - main [ref=f3e352]:
+        - heading [level=1] [ref=f3e353]: Job application form
+        - generic [ref=f3e289]:
+          - heading [level=1] [ref=f3e354]:
+            - generic [ref=f3e292]: You don't need to have an account!
+          - generic [ref=f3e293]:
+            - paragraph [ref=f3e294]: Get started right away with your email. Your profile will be created and kept up to date automatically for each of your job applications. To create your profile, we need your email address. Read the "Important Privacy Information" below.
+            - generic [ref=f3e296]:
+              - generic [ref=f3e297]:
+                - generic [ref=f3e355]:
+                  - generic [ref=f3e300]: Email Address
+                  - generic [aria-hidden] [ref=f3e301]: "*"
+                - textbox [ref=f3e356]: ramgopalvarma8520@gmail.com
+              - generic [ref=f3e305]: honeypot
+              - textbox [aria-hidden] [ref=f3e307]
+              - generic [ref=f3e308]: This is how we'll communicate with you.
+              - generic [ref=f3e311]:
+                - generic [ref=f3e312] [cursor=pointer]
+                - generic [ref=f3e313] [cursor=pointer]:
+                  - generic [ref=f3e315]:
+                    - text: I have read the
+                    - link [ref=f3e357]:
+                      - /url: "#"
+                      - text: Important Privacy Information
+                  - generic [aria-hidden] [ref=f3e317]: "*"
+          - generic [ref=f3e318]:
+            - button [ref=f3e358] [cursor=pointer]:
+              - generic [ref=f3e321]: Cancel
+            - button [ref=f3e359] [cursor=pointer]:
+              - generic [ref=f3e323]: Next

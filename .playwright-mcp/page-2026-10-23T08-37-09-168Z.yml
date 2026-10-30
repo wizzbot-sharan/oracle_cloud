@@ -1,0 +1,51 @@
+- generic [active] [ref=e1]:
+  - generic [aria-hidden] [ref=e2]:
+    - generic [ref=e3]: .
+    - generic [ref=e4]: ..
+    - generic [ref=e5]: .
+  - generic [ref=e7]:
+    - link "Skip to main content." [ref=e498] [cursor=pointer]:
+      - /url: "#main"
+    - generic:
+      - alert
+    - generic [ref=e500]:
+      - banner [ref=e502]:
+        - generic [ref=e504]:
+          - link "Back to Job Details" [ref=e505] [cursor=pointer]:
+            - generic [ref=e506]: 
+          - tooltip "Research Data Analyst - Tennessee Reading Research Center - UTK ..." [ref=e507]:
+            - generic [ref=e508]:
+              - generic [ref=e509]: Research Data Analyst - Tennessee Reading Research Center - UTK
+              - generic [ref=e510]: ...
+      - main [ref=e512]:
+        - heading "Job application form" [level=1] [ref=e513]
+        - generic [ref=e515]:
+          - heading "Authentication screen. You don't need to have an account" [level=1] [ref=e517]:
+            - generic: Authentication screen.
+            - text: You don't need to have an account
+          - generic [ref=e518]:
+            - paragraph [ref=e519]: Get started right away by using your email or phone number. Your profile will be created and kept up to date automatically as you enter details for each of your job applications.
+            - generic [ref=e521]:
+              - generic [ref=e522]:
+                - generic "Email Address" [ref=e524]:
+                  - generic [aria-hidden] [ref=e526]: "*"
+                - textbox "Email Address" [ref=e528]
+              - generic:
+                - generic: honeypot
+                - textbox [aria-hidden] [ref=e532]
+              - generic [ref=e533]:
+                - text: This is how we'll communicate with you.
+                - button "Do you want to communicate by phone instead?" [ref=e534] [cursor=pointer]
+              - generic [ref=e536]:
+                - checkbox "I agree with the terms and conditions"
+                - generic [ref=e537]:
+                  - generic [ref=e538] [cursor=pointer]
+                  - generic [ref=e539] [cursor=pointer]:
+                    - generic [ref=e541]:
+                      - text: I agree with the
+                      - link "terms and conditions" [ref=e542]:
+                        - /url: "#"
+                    - generic [aria-hidden] [ref=e543]: "*"
+          - generic [ref=e544]:
+            - button "Cancel" [ref=e545] [cursor=pointer]
+            - button "Next" [ref=e548] [cursor=pointer]

@@ -1,0 +1,199 @@
+- generic [active] [ref=e1]:
+  - generic [aria-hidden] [ref=e2]:
+    - generic [ref=e3]: .
+    - generic [ref=e4]: ..
+    - generic [ref=e5]: .
+  - generic [ref=e7]:
+    - link "Skip to main content." [ref=e8] [cursor=pointer]:
+      - /url: "#main"
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - banner [ref=e13]:
+          - generic [ref=e16]:
+            - link "Go to Home Page" [ref=e18] [cursor=pointer]:
+              - /url: https://fa-etjg-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/RSC/?utm_medium=jobshare
+            - generic [ref=e19]:
+              - link "Manage profile" [ref=e22] [cursor=pointer]:
+                - /url: https://fa-etjg-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/RSC/my-profile/sign-in
+                - generic [ref=e23]: 
+              - button "Open menu" [ref=e25] [cursor=pointer]:
+                - generic [ref=e26]:
+                  - emphasis [ref=e27]
+                  - emphasis [ref=e28]
+                  - emphasis [ref=e29]
+        - main [ref=e31]:
+          - generic [ref=e38]:
+            - generic [ref=e41]:
+              - button "Add Job to My Job Selections" [ref=e43] [cursor=pointer]: 
+              - link "View More Jobs" [ref=e45] [cursor=pointer]:
+                - /url: https://fa-etjg-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/RSC/jobs?utm_medium=jobshare
+                - generic [ref=e46]:
+                  - text: 
+                  - generic [ref=e47]: View More Jobs
+            - article [ref=e48]:
+              - generic [ref=e54]:
+                - generic [ref=e58]:
+                  - heading "Director, IT Service Desk" [level=1] [ref=e60]
+                  - generic [ref=e61]: Coppell, TX, United States
+                - generic [ref=e70]:
+                  - heading "Job Description" [level=2] [ref=e71]
+                  - generic [ref=e72]:
+                    - paragraph [ref=e73]:
+                      - strong [ref=e76]: Director, IT Service Desk
+                    - paragraph [ref=e77]:
+                      - strong [ref=e80]: Coppell, TX
+                    - paragraph [ref=e81]
+                    - paragraph [ref=e82]:
+                      - generic [ref=e84]:
+                        - strong [ref=e85]: What does it mean to be a BrinkerHead?
+                        - text: It means creating moments that make everyone feel special — whether you’re supporting our restaurants, celebrating wins with your team, or sparking ideas that keep Guests coming back. We play like a team, take pride in our culture, and know that life’s too short not to work happy.
+                    - paragraph [ref=e86]
+                    - paragraph [ref=e87]:
+                      - generic [ref=e88]: At Brinker’s Restaurant Support Center (RSC), every role fuels the success of our brands — Chili’s® Grill & Bar and Maggiano’s Little Italy® — and directly impacts Team Members and Guests. From bold ideas to everyday support, we help create a fun atmosphere, great food and drinks, and the kind of hospitality that keeps everyone coming back. Here, you’ll discover opportunities for career growth, belonging, wellbeing, and plenty of chances to work hard and have fun.
+                    - paragraph [ref=e89]
+                    - paragraph [ref=e90]:
+                      - generic [ref=e91]: Brinker International is an equal opportunity employer. We’re proud to provide a welcoming, respectful environment where everyone can thrive.
+                    - paragraph [ref=e92]
+                    - paragraph [ref=e93]:
+                      - strong [ref=e96]: Job Summary – Candidate must be local OR be willing to relocate.
+                    - paragraph [ref=e97]:
+                      - generic [ref=e98]: The Director, IT Service Desk is responsible for setting the vision, strategy, operating model, and service standards for Level 1/2 IT support across Brinker restaurants and the Restaurant Support Center (RSC). This leader owns the end-to-end service desk experience, ensuring Team Members receive timely, consistent, and hospitality-focused support that minimizes disruption to restaurant operations and corporate productivity.
+                    - paragraph [ref=e99]
+                    - paragraph [ref=e100]:
+                      - strong [ref=e103]: Key Job Functions
+                    - paragraph [ref=e104]:
+                      - generic [ref=e105]: • Lead, mentor, and grow a high performing restaurant technology support organization, corporate support team, and IT Service Management function.
+                    - paragraph [ref=e106]:
+                      - generic [ref=e107]: • Manage all aspects of incident management, problem management, and overall health and reliability of IT systems.
+                    - paragraph [ref=e108]:
+                      - generic [ref=e109]: • Lead major incident engagement for the service desk, ensuring rapid intake, accurate prioritization, effective communication, appropriate escalation, and strong coordination through restoration and follow-up.
+                    - paragraph [ref=e110]:
+                      - generic [ref=e111]: • Strengthen problem management by identifying recurring issues and demand drivers, assigning ownership for root cause and corrective actions, and tracking prevention efforts to completion.
+                    - paragraph [ref=e112]:
+                      - generic [ref=e113]: • Improve request fulfillment through a clear service catalog, standardized fulfillment models, measurable delivery commitments, automation, and an intuitive self-service experience.
+                    - paragraph [ref=e114]:
+                      - generic [ref=e115]: • Ensure alignment of operational level expectations and track key performance indicators. Use analytics to identify trends and prioritize continual improvement.
+                    - paragraph [ref=e116]:
+                      - generic [ref=e117]: • Advance knowledge management capabilities by establishing article quality standards, ownership, review cycles, usage expectations, and feedback mechanisms that increase first-contact resolution and enable self-service.
+                    - paragraph [ref=e118]:
+                      - generic [ref=e119]: • Develop workforce and capacity plans that account for restaurant operating hours, seasonality, promotions, technology deployments, outages, and RSC support demand.
+                    - paragraph [ref=e120]:
+                      - generic [ref=e121]: • Manage third-party and managed service provider performance, including contractual service levels, operational reviews, staffing, quality, financial stewardship, escalations, and improvement commitments.
+                    - paragraph [ref=e122]:
+                      - generic [ref=e123]: • Partner with technology teams to improve support readiness, escalation paths, operational documentation, and handoffs across Level 1, Level 2, and Level 3 support.
+                    - paragraph [ref=e124]:
+                      - generic [ref=e125]: • Serve as a connective point across the Service Desk, technology teams, and business partners, translating support trends and operational impact into actionable insights and ensuring the right partners are engaged for problem solving, escalation, and resolution. Strengthen support readiness, escalation paths, documentation, and handoffs across Level 1, Level 2, and Level 3 support.
+                    - paragraph [ref=e126]:
+                      - generic [ref=e127]: • Ensure technical changes are operationally ready for support, including training, knowledge, communications, process updates, support models, and hyper-care planning.
+                    - paragraph [ref=e128]:
+                      - generic [ref=e129]: • Serve as the executive escalation point for significant service concerns affecting restaurants, RSC Team Members, field leadership, or senior leaders, providing clear status, risk, and recovery communications.
+                    - paragraph [ref=e130]:
+                      - generic [ref=e131]: • Provide executive-ready reporting on service health, demand, customer experience, major trends, risks, financial performance, and improvement outcomes.
+                    - paragraph [ref=e132]:
+                      - generic [ref=e133]: • Participate in after-hours and escalation support when critical business services or restaurant operations are materially impacted.
+                    - paragraph [ref=e134]
+                    - paragraph [ref=e135]
+                    - paragraph [ref=e136]:
+                      - strong [ref=e139]: What You Bring to the Team
+                    - paragraph [ref=e140]:
+                      - generic [ref=e141]: • 5+ years of progressive leadership experience, with current experience at the Sr. Manager level or above, leading an enterprise IT Service Desk, restaurant technology, or similarly complex support organization; current Chili’s GMPs and DOs in good standing with demonstrated experience leading large, high-performing restaurant teams will also be considered.
+                    - paragraph [ref=e142]:
+                      - generic [ref=e143]: • Strong working knowledge of restaurant operations and restaurant technology, including POS, KDS, back-office technology, and consumer-facing technology.
+                    - paragraph [ref=e144]:
+                      - generic [ref=e145]: • Demonstrated experience leading leaders and building high-performing, multi-layered teams, including developing leadership capability, establishing accountability, and creating a strong service culture.
+                    - paragraph [ref=e146]:
+                      - generic [ref=e147]: • Proven ability to lead through high-severity incidents with urgency, composure, accountability, and clear communication.
+                    - paragraph [ref=e148]:
+                      - generic [ref=e149]: • Strong executive presence and communication skills, with the ability to influence senior leaders and partner effectively across technology and business functions.
+                    - paragraph [ref=e150]:
+                      - generic [ref=e151]: • Demonstrated ability to translate complex technical and operational issues for different audiences, connect themes across teams and data, and influence cross-functional partners toward shared solutions.
+                    - paragraph [ref=e152]:
+                      - generic [ref=e153]: • Candidates must be able to work onsite in Coppell, TX or be willing to relocate.
+                    - paragraph [ref=e154]:
+                      - strong [ref=e157]: Why Brinker
+                    - paragraph [ref=e158]:
+                      - generic [ref=e159]: At Brinker, we believe life is short, so work happy! That means creating an environment where you can grow your career, feel a sense of belonging and wellbeing, and have fun along the way.
+                    - paragraph [ref=e160]
+                    - paragraph [ref=e161]:
+                      - generic [ref=e162]: "Here’s how we make that real for our BrinkerHeads at the RSC:"
+                    - list [ref=e163]:
+                      - listitem [ref=e164]:
+                        - generic [ref=e166]:
+                          - strong [ref=e167]: "Flexibility that fits your life:"
+                          - text: Hybrid schedules with weekly flex days to work from home.
+                      - listitem [ref=e168]:
+                        - generic [ref=e170]:
+                          - strong [ref=e171]: "Enjoy our brands:"
+                          - text: Generous dining discounts at Chili’s® Grill & Bar and Maggiano’s Little Italy®.
+                      - listitem [ref=e172]:
+                        - generic [ref=e174]:
+                          - strong [ref=e175]: "Wellbeing at work:"
+                          - text: On-site gym and fitness classes like yoga and boot camp.
+                      - listitem [ref=e176]:
+                        - generic [ref=e178]:
+                          - strong [ref=e179]: "A culture worth celebrating:"
+                          - text: From company-wide events to a casual, collaborative atmosphere, you’ll find plenty of ways to connect, work hard, and play hard.
+                    - paragraph [ref=e180]
+                    - paragraph [ref=e181]:
+                      - strong [ref=e184]: Check our
+                      - link [ref=e185] [cursor=pointer]:
+                        - /url: https://www.brinkerjobs.com/
+                        - strong [ref=e188]: Careers page
+                      - strong [ref=e191]: and
+                      - link [ref=e192] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/brinker-international/
+                        - strong [ref=e195]: LinkedIn
+                      - strong [ref=e198]: for more exciting opportunities!
+                - button "Apply Now" [ref=e205] [cursor=pointer]
+                - generic [ref=e212]:
+                  - heading "Job Info" [level=2] [ref=e213]
+                  - list [ref=e217]:
+                    - listitem [ref=e218]:
+                      - generic [ref=e219]: Job Identification
+                      - generic [ref=e220]: "17067"
+                    - listitem [ref=e221]:
+                      - generic [ref=e222]: Posting Date
+                      - generic [ref=e223]: 10/20/2026, 07:13 PM
+                    - listitem [ref=e224]:
+                      - generic [ref=e225]: Job Schedule
+                      - generic [ref=e226]: Full time
+                    - listitem [ref=e227]:
+                      - generic [ref=e228]: Locations
+                      - generic [ref=e231]:
+                        - emphasis [aria-hidden] [ref=e232]: 
+                        - text: 3000 Olympus Blvd, Dallas, TX, 75019, US
+                - generic [ref=e241]:
+                  - list [ref=e242]:
+                    - listitem [ref=e243]:
+                      - application "You're viewing job locations plotted on the map. If you're using a keyboard or other assistive tool, go to the job info section for location details." [ref=e244]:
+                        - region "Map" [ref=e245]
+                        - generic:
+                          - group [ref=e246]:
+                            - button "Legend" [ref=e251] [cursor=pointer]
+                          - generic [ref=e252]:
+                            - button "Zoom In" [ref=e253] [cursor=pointer]
+                            - button "Zoom Out" [ref=e255] [cursor=pointer]
+                          - group [ref=e257]:
+                            - generic [ref=e259]:
+                              - link "© Oracle Corporation":
+                                - /url: "#"
+                              - link "Terms" [ref=e260] [cursor=pointer]:
+                                - /url: https://elocation.oracle.com/elocation/legal.html
+                              - link "Legal Notices" [ref=e261] [cursor=pointer]:
+                                - /url: https://www.oracle.com/legal/terms.html
+                        - generic: Use command and scroll to zoom the map
+                        - generic [ref=e262]:
+                          - generic [ref=e264]:
+                            - paragraph [ref=e265]: 3000 Olympus Blvd, Dallas, TX, 75019, US
+                            - link "Copy to Clipboard" [ref=e266] [cursor=pointer]:
+                              - /url: ""
+                          - button "Close" [ref=e267] [cursor=pointer]: 
+                  - generic:
+                    - button [aria-hidden] [ref=e268] [cursor=pointer]: 
+                    - button [aria-hidden] [ref=e269] [cursor=pointer]: 
+                - alert "Loading screen" [ref=e276]: 
+      - contentinfo
+    - alert
+    - status [ref=e277]:
+      - paragraph [ref=e278]: Page Director, IT Service Desk - RSC Careers loaded
+    - alert [ref=e279]

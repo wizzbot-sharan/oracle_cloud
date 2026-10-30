@@ -1,0 +1,25 @@
+[    2572ms] [WARNING] BASE_URL_ATTR "data-base-url" not found @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2586ms] [INFO] No translation for key: apply-flow.communication-channel.sms-button-label (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2586ms] [INFO] No translation for key: apply-flow.communication-channel.whatsapp-button-label (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2594ms] [INFO] No translation for key: apply-flow.validation.duplicate-prefered-skill (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    2606ms] [INFO] No translation for key: admin.site-editor.search-settings.suggestion-panel-message (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    3109ms] [WARNING] Unknown global setting - ORA_IRC_CE_GJS_ENABLED @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    3109ms] [WARNING] Unknown global setting - ORA_IRC_USER_TRACKING_ENABLE @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    3109ms] [WARNING] Unknown global setting - ORA_IRC_NUMBER_OF_JOBS_TO_BE_LOADED_ON_MAP @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    3109ms] [WARNING] Unknown global setting - ORA_IRC_FALLBACK_TO_SPRING @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    3109ms] [WARNING] Unknown global setting - IRC_CE_USE_MODERN_TEMPLATE @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    3109ms] [WARNING] Unknown global setting - ORA_IRC_EXWKR_CWKEXT_CITIZENSHIP_UPDATE_RECRUITER @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    3109ms] [WARNING] Unknown global setting - IRC_CE_AGENT_STARTER_MESSAGE @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    3109ms] [WARNING] Unknown global setting - IRC_CE_CAREER_COACH_AGENT_CODE @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    3109ms] [WARNING] Unknown global setting - IRC_CE_ENHANCE_MODE_ENABLED @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    3181ms] [INFO] No translation for key: admin.ai-assistant-editor.header-background-color-label (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    3192ms] [INFO] No translation for key: Skip to main content. (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[    4433ms] [INFO] styles loading... @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[   13111ms] [ERROR] undefined @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[   17013ms] GeolocationPositionError
+[   32057ms] [INFO] No translation for key: Skip to main content. (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[   32424ms] [INFO] No translation for key: false (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[   32426ms] [INFO] No translation for key: false (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[   32489ms] [INFO] No translation for key: false (en) @ https://static.oracle.com/cdn/fa/oj-hcm-ce/2607.26.262300322/js/main-minimal.js:1
+[  125930ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://fa-ewlq-saasfaprod1.fa.ocs.oraclecloud.com/hcmRestApi/resources/11.13.18.05/recruitingCEApplyFlows/300001173057344/child/sections:0
+[  131435ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://fa-ewlq-saasfaprod1.fa.ocs.oraclecloud.com/hcmRestApi/resources/11.13.18.05/recruitingCEApplyFlows/300001173057344/child/sections:0

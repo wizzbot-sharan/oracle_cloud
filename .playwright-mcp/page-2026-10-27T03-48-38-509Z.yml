@@ -1,0 +1,28 @@
+- generic [active] [ref=e1]:
+  - generic [aria-hidden] [ref=e2]:
+    - generic [ref=e3]: .
+    - generic [ref=e4]: ..
+    - generic [ref=e5]: .
+  - generic [ref=e7]:
+    - link "Skip to main content." [ref=e412] [cursor=pointer]:
+      - /url: "#main"
+    - generic:
+      - alert
+    - generic [ref=e297]:
+      - banner [ref=e299]:
+        - generic [ref=e301]:
+          - link "Back to Job Details" [ref=e413] [cursor=pointer]:
+            - generic [ref=e303]: 
+          - tooltip "Director, IT Service Desk ..." [ref=e414]:
+            - generic [ref=e305]:
+              - generic [ref=e306]: Director, IT Service Desk
+              - generic [ref=e307]: ...
+      - main [ref=e415]:
+        - heading "Job application form" [level=1] [ref=e416]
+        - generic [ref=e312]:
+          - heading "Authentication screen. You don't need to have an account" [level=1] [ref=e417]:
+            - generic: Authentication screen.
+            - text: You don't need to have an account
+          - generic [ref=e315]:
+            - paragraph [ref=e316]: Get started right away by using your email or phone number. Your profile will be created and kept up to date automatically as you enter details for each of your job applications.
+            - progressbar [ref=e427]

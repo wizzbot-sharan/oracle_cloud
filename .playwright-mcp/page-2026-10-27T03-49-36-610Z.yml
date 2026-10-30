@@ -1,0 +1,44 @@
+- generic [ref=e1]:
+  - generic [aria-hidden] [ref=e2]:
+    - generic [ref=e3]: .
+    - generic [ref=e4]: ..
+    - generic [ref=e5]: .
+  - generic [ref=e7]:
+    - link "Skip to main content." [ref=e412] [cursor=pointer]:
+      - /url: "#main"
+    - generic:
+      - alert
+    - generic [ref=e297]:
+      - banner [ref=e299]:
+        - generic [ref=e301]:
+          - link "Back to Job Details" [ref=e413] [cursor=pointer]:
+            - generic [ref=e303]: 
+          - tooltip "Director, IT Service Desk ..." [ref=e414]:
+            - generic [ref=e305]:
+              - generic [ref=e306]: Director, IT Service Desk
+              - generic [ref=e307]: ...
+      - main [ref=e415]:
+        - heading "Job application form" [level=1] [ref=e416]
+        - generic [ref=e429]:
+          - heading "Confirm Your Identity" [level=1] [ref=e431]
+          - generic [ref=e432]:
+            - generic [ref=e433]:
+              - alert [ref=e467]: "The verification code was sent to this email address: ramgopalvarma8520@gmail.com. When you get the code, type the code into the field to confirm your identity and complete your job application. Note that it may take some time before you receive the code."
+              - generic [ref=e468]:
+                - group "Verification Code" [ref=e471]:
+                  - generic [ref=e473]:
+                    - textbox "Enter verification code digit 1 of six." [active] [ref=e475]: "7"
+                    - textbox "Enter verification code digit 2 of six." [ref=e477]: "0"
+                    - textbox "Enter verification code digit 3 of six." [ref=e479]: "8"
+                    - textbox "Enter verification code digit 4 of six." [ref=e481]: "3"
+                    - textbox "Enter verification code digit 5 of six." [ref=e483]: "7"
+                    - textbox "Enter verification code digit 6 of six." [ref=e485]: "3"
+                - generic "Keep me signed in" [ref=e486]:
+                  - checkbox "Keep me signed in"
+                  - generic [ref=e487]:
+                    - status [ref=e488]:
+                      - generic [ref=e489] [cursor=pointer]
+                      - generic [ref=e490] [cursor=pointer]: Keep me signed in
+                    - button "Choose this option to be signed in automatically when you come back to our career site. Don't use this option if you're using a public or shared computer." [ref=e493] [cursor=pointer]: "?"
+            - button "Verify" [ref=e494] [cursor=pointer]
+            - button "Send New Code" [ref=e466] [cursor=pointer]

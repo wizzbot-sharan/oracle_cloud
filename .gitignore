@@ -1,0 +1,6 @@
+node_modules/
+.env
+.DS_Store
+spike/results/question-scans/
+artifacts/
+archive/legacy-2026-10-30/

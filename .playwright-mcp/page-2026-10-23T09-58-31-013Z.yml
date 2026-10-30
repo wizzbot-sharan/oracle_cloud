@@ -1,0 +1,23 @@
+- generic [active] [ref=f4e1]:
+  - generic [aria-hidden] [ref=f4e2]:
+    - generic [ref=f4e3]: .
+    - generic [ref=f4e4]: ..
+    - generic [ref=f4e5]: .
+  - generic [ref=f4e7]:
+    - link "Skip to main content." [ref=f4e8] [cursor=pointer]:
+      - /url: "#main"
+    - generic [ref=f4e10]:
+      - main [ref=f4e13]:
+        - alert "Loading screen" [ref=f4e17]: 
+      - contentinfo [ref=f4e18]:
+        - list [ref=f4e20]:
+          - listitem [ref=f4e21]:
+            - link "Non discrimination statement" [ref=f4e22] [cursor=pointer]:
+              - /url: https://equity.tennessee.edu/non-discrimination-statement/
+          - listitem [ref=f4e23]:
+            - link "Privacy Notice" [ref=f4e24] [cursor=pointer]:
+              - /url: https://tennessee.edu/privacy/
+    - alert
+    - status [ref=f4e25]
+    - alert [ref=f4e26]
+  - button "Personal Job Assistant" [ref=f4e27] [cursor=pointer]

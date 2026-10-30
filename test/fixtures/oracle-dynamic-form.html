@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+  <body>
+    <main id="application-form">
+      <section>
+        <h2>Application Questions</h2>
+        <fieldset>
+          <legend>Do you need sponsorship?</legend>
+          <label><input type="radio" name="sponsorship" value="yes" required> Yes</label>
+          <label><input type="radio" name="sponsorship" value="no"> No</label>
+        </fieldset>
+        <div id="sponsor-detail" hidden>
+          <label for="sponsor-explanation">Please explain sponsorship needs</label>
+          <textarea id="sponsor-explanation" required></textarea>
+        </div>
+
+        <fieldset>
+          <legend>Notification preferences</legend>
+          <label><input type="checkbox" name="notifications" value="email"> Email</label>
+          <label><input type="checkbox" name="notifications" value="sms"> SMS</label>
+        </fieldset>
+        <div id="email-detail" hidden><label for="email-frequency">Email frequency</label><select id="email-frequency"><option>Daily</option><option>Weekly</option></select></div>
+        <div id="sms-detail" hidden><label for="sms-time">SMS time</label><input id="sms-time"></div>
+        <div id="both-detail" hidden><label for="both-note">Both selected note</label><input id="both-note"></div>
+
+        <label for="country">Country</label>
+        <select id="country" required>
+          <option value="">Select</option>
+          <option value="US">United States</option>
+          <option value="IN">India</option>
+        </select>
+        <label for="state">State</label>
+        <select id="state" required></select>
+
+        <label for="skill">Primary skill</label>
+        <input id="skill" role="combobox" aria-expanded="false" aria-controls="skill-list" required>
+        <div id="skill-list" role="listbox" hidden>
+          <div role="option" data-value="js">JavaScript</div>
+          <div role="option" data-value="sql">SQL</div>
+          <div role="option" data-value="python">Python</div>
+        </div>
+
+
+        <button id="add-education" type="button">Add Education</button>
+        <div id="education" hidden>
+          <label for="school">School name</label>
+          <input id="school" required>
+          <button id="cancel-education" type="button">Cancel</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>E-Signature</h2>
+        <label for="full-name">Full Name</label>
+        <input id="full-name" required>
+        <label for="years">Years of experience</label>
+        <input id="years" type="number" required>
+      </section>
+      <button id="next" type="button">Next</button>
+    </main>
+
+    <script>
+      const states = {
+        US: [['CA', 'California'], ['NY', 'New York']],
+        IN: [['KA', 'Karnataka'], ['MH', 'Maharashtra']],
+      };
+      document.querySelectorAll('input[name="sponsorship"]').forEach((input) => {
+        input.addEventListener('change', () => {
+          document.querySelector('#sponsor-detail').hidden = input.value !== 'yes' || !input.checked;
+        });
+      });
+      document.querySelectorAll('input[name="notifications"]').forEach((input) => {
+        input.addEventListener('change', () => {
+          const email = document.querySelector('input[name="notifications"][value="email"]').checked;
+          const sms = document.querySelector('input[name="notifications"][value="sms"]').checked;
+          document.querySelector('#email-detail').hidden = !email;
+          document.querySelector('#sms-detail').hidden = !sms;
+          document.querySelector('#both-detail').hidden = !(email && sms);
+        });
+      });
+      document.querySelector('#country').addEventListener('change', (event) => {
+        const state = document.querySelector('#state');
+        state.innerHTML = '<option value="">Select</option>' + (states[event.target.value] || [])
+          .map(([value, label]) => `<option value="${value}">${label}</option>`).join('');
+      });
+      const skill = document.querySelector('#skill');
+      const skillList = document.querySelector('#skill-list');
+      skill.addEventListener('click', () => {
+        skillList.hidden = false;
+        skill.setAttribute('aria-expanded', 'true');
+      });
+      skillList.querySelectorAll('[role="option"]').forEach((option) => {
+        option.addEventListener('click', () => {
+          skill.value = option.textContent;
+          skill.dataset.value = option.dataset.value;
+          skillList.hidden = true;
+          skill.setAttribute('aria-expanded', 'false');
+          skill.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+      });
+      document.querySelector('#add-education').addEventListener('click', () => {
+        document.querySelector('#education').hidden = false;
+      });
+      document.querySelector('#cancel-education').addEventListener('click', () => {
+        document.querySelector('#education').hidden = true;
+      });
+    </script>
+  </body>
+</html>

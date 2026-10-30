@@ -1,0 +1,69 @@
+- generic [ref=f3e1]:
+  - generic [aria-hidden] [ref=f3e2]:
+    - generic [ref=f3e3]: .
+    - generic [ref=f3e4]: ..
+    - generic [ref=f3e5]: .
+  - generic [ref=f3e7]:
+    - link "Skip to main content." [ref=f3e360] [cursor=pointer]:
+      - /url: "#main"
+    - generic:
+      - alert
+    - generic [ref=f3e274]:
+      - banner [ref=f3e276]:
+        - generic [ref=f3e278]:
+          - link "Back to Job Details" [ref=f3e361] [cursor=pointer]:
+            - generic [ref=f3e280]: 
+          - tooltip "Advanced Data Scientist ..." [ref=f3e362]:
+            - generic [ref=f3e282]:
+              - generic [ref=f3e283]: Advanced Data Scientist
+              - generic [ref=f3e284]: ...
+      - main [ref=f3e363]:
+        - heading "Job application form" [level=1] [ref=f3e364]
+        - generic [ref=f3e289]:
+          - heading "Authentication screen. You don't need to have an account!" [level=1] [ref=f3e365]:
+            - generic: Authentication screen.
+            - generic [ref=f3e292]: You don't need to have an account!
+          - generic [ref=f3e293]:
+            - paragraph [ref=f3e294]: Get started right away with your email. Your profile will be created and kept up to date automatically for each of your job applications. To create your profile, we need your email address. Read the "Important Privacy Information" below.
+            - generic [ref=f3e296]:
+              - generic [ref=f3e297]:
+                - generic "Email Address" [ref=f3e366]:
+                  - generic [aria-hidden] [ref=f3e301]: "*"
+                - textbox "Email Address" [ref=f3e367]: ramgopalvarma8520@gmail.com
+              - generic:
+                - generic: honeypot
+                - textbox [aria-hidden] [ref=f3e307]
+              - generic [ref=f3e308]: This is how we'll communicate with you.
+              - generic [ref=f3e310]:
+                - checkbox "I have read the Important Privacy Information" [checked]
+                - generic [ref=f3e311]:
+                  - generic [ref=f3e312] [cursor=pointer]
+                  - generic [ref=f3e313] [cursor=pointer]:
+                    - generic [ref=f3e315]:
+                      - text: I have read the
+                      - link "Important Privacy Information" [ref=f3e368]:
+                        - /url: "#"
+                    - generic [aria-hidden] [ref=f3e317]: "*"
+          - generic [ref=f3e318]:
+            - button "Cancel" [ref=f3e369] [cursor=pointer]
+            - button "Next" [ref=f3e370] [cursor=pointer]
+  - generic [ref=f3e371]:
+    - iframe [active] [ref=f3e373]:
+      - generic [ref=f4e2]:
+        - generic [ref=f4e5]:
+          - generic [ref=f4e8]:
+            - heading "Drag the shape that fits the outline" [level=2] [ref=f4e9]
+            - paragraph
+          - 'img "Image-based CAPTCHA challenge. Please use the ''Accessibility: Retrieve Cookie'' or ''Accessibility: Text Challenge'' options if available in the challenge menu." [ref=f4e11]'
+        - generic [ref=f4e12]:
+          - alert [aria-hidden] [ref=f4e13]:
+            - generic [ref=f4e14]: Please try again. ⚠️
+          - button "Skip Challenge" [ref=f4e15] [cursor=pointer]:
+            - generic: Skip
+        - generic [ref=f4e16]:
+          - button "EN - English, Select a language" [ref=f4e18] [cursor=pointer]:
+            - generic [aria-hidden] [ref=f4e19]: EN
+          - button "About hCaptcha & Accessibility Options" [active] [ref=f4e20] [cursor=pointer]
+          - button "Refresh Challenge." [ref=f4e31] [cursor=pointer]
+          - button "hCaptcha logo, opens new window with more information" [ref=f4e40] [cursor=pointer]
+    - generic [ref=f3e374] [cursor=pointer]

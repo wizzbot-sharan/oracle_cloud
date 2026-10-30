@@ -1,0 +1,49 @@
+- generic [active] [ref=e1]:
+  - generic [aria-hidden] [ref=e2]:
+    - generic [ref=e3]: .
+    - generic [ref=e4]: ..
+    - generic [ref=e5]: .
+  - generic [ref=e7]:
+    - link "Skip to main content." [ref=e301] [cursor=pointer]:
+      - /url: "#main"
+    - generic:
+      - alert
+    - generic [ref=e303]:
+      - banner [ref=e305]:
+        - generic [ref=e307]:
+          - link "Back to Job Details" [ref=e308] [cursor=pointer]:
+            - generic [ref=e309]: 
+          - tooltip "Advanced Data Scientist ..." [ref=e310]:
+            - generic [ref=e311]:
+              - generic [ref=e312]: Advanced Data Scientist
+              - generic [ref=e313]: ...
+      - main [ref=e315]:
+        - heading "Job application form" [level=1] [ref=e316]
+        - generic [ref=e318]:
+          - heading "Authentication screen. You don't need to have an account!" [level=1] [ref=e320]:
+            - generic: Authentication screen.
+            - generic [ref=e321]: You don't need to have an account!
+          - generic [ref=e322]:
+            - paragraph [ref=e323]: Get started right away with your email. Your profile will be created and kept up to date automatically for each of your job applications. To create your profile, we need your email address. Read the "Important Privacy Information" below.
+            - generic [ref=e325]:
+              - generic [ref=e326]:
+                - generic "Email Address" [ref=e328]:
+                  - generic [aria-hidden] [ref=e330]: "*"
+                - textbox "Email Address" [ref=e332]: ramgopalvarma8520@gmail.com
+              - generic:
+                - generic: honeypot
+                - textbox [aria-hidden] [ref=e336]
+              - generic [ref=e337]: This is how we'll communicate with you.
+              - generic [ref=e339]:
+                - checkbox "I have read the Important Privacy Information"
+                - generic [ref=e340]:
+                  - generic [ref=e341] [cursor=pointer]
+                  - generic [ref=e342] [cursor=pointer]:
+                    - generic [ref=e344]:
+                      - text: I have read the
+                      - link "Important Privacy Information" [ref=e345]:
+                        - /url: "#"
+                    - generic [aria-hidden] [ref=e346]: "*"
+          - generic [ref=e347]:
+            - button "Cancel" [ref=e348] [cursor=pointer]
+            - button "Next" [ref=e351] [cursor=pointer]

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <body>
+    <div id="stepper"><span data-step="1">1</span><span data-step="2">2</span></div>
+    <main id="application-form">
+      <section id="page-1">
+        <h2>Contact Information</h2>
+        <label for="first">First Name</label>
+        <input id="first" required>
+        <button id="next" type="button">Next</button>
+      </section>
+      <section id="page-2" hidden>
+        <h2>Application Questions</h2>
+        <fieldset>
+          <legend>Are you available?</legend>
+          <label><input type="radio" name="available" value="yes" required> Yes</label>
+          <label><input type="radio" name="available" value="no"> No</label>
+        </fieldset>
+        <button id="submit" type="submit">Submit</button>
+      </section>
+    </main>
+    <script>
+      window.submitClicks = 0;
+      document.querySelector('#next').addEventListener('click', () => {
+        if (!document.querySelector('#first').value) return;
+        document.querySelector('#page-1').hidden = true;
+        document.querySelector('#page-2').hidden = false;
+      });
+      document.querySelector('#submit').addEventListener('click', (event) => {
+        event.preventDefault();
+        window.submitClicks++;
+      });
+    </script>
+  </body>
+</html>
