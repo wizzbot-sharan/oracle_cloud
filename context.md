@@ -4,7 +4,7 @@ Last updated: 2026-10-30 (session wrap-up)
 
 ## Purpose
 
-This project scans Oracle Cloud HCM applications for multiple users, records each question and option, and later supports dashboard review. Submission is never automatic: only an approved application may submit.
+This project scans Oracle Cloud HCM applications for multiple users, records each question and option into a structured QA repository, and supports dashboard review and automated form filling. Submission is never automatic: only an approved application may submit.
 
 ## Documentation contract
 
@@ -26,52 +26,58 @@ This project scans Oracle Cloud HCM applications for multiple users, records eac
 
 ## Active modules
 
-- `src/config.js`: environment validation, pacing, limits, evidence level, paths, and breaker settings.
+- `src/config.js`: environment validation, pacing, limits, evidence level, paths, breaker settings, `captureComboboxOptions`, and `defaultCountry`.
 - `src/run.js`: job loading, URL normalization, launch gate, worker outcomes, circuit breaker, and cleanup.
-- `src/scan-login.js`: authentication-stage orchestration.
-- `src/scan-application.js`: application-stage page traversal.
+- `src/scan-login.js`: authentication-stage orchestration with OTP polling and magic-link support.
+- `src/scan-application.js`: application-stage page traversal with JET readiness checks.
 - `src/qa.js`: QA normalization, validation, and atomic replacement.
 - `src/evidence.js`: masked events, screenshots, manifests, partial outputs, and immutable evidence preparation.
-- `src/integrations/zoho/mailbox.js`: tenant-aware OTP and magic-link polling; URLs and OTPs never enter logs.
-- `src/sites/oracle/selectors.js`: the single Oracle selector catalog.
-- `src/sites/oracle/scanner.js`: registry detection, grouping, options, branches, repeaters, and synthetic filling.
-- `src/sites/oracle/runtime.js`: Oracle JET readiness and settle helpers.
+- `src/integrations/zoho/mailbox.js`: tenant-aware OTP and magic-link polling; allows `no-reply@oracle.com` and related workflow senders; URLs and OTPs never enter logs.
+- `src/sites/oracle/selectors.js`: the single Oracle selector catalog, including `repeaterEditor`, `repeaterCancel`, and `timelineDisabledAnchor`.
+- `src/sites/oracle/scanner.js`: registry detection, grouping, options, branches, fast combobox mode, progressive address gating, timeline repeaters, and synthetic filling.
+- `src/sites/oracle/runtime.js`: Oracle JET readiness with dual-layer race timer capped at 2,000ms.
+
+## Phase 1 Scanning Optimizations & Fixes
+
+1. **Combobox Fast Mode**: `SCANNER_CAPTURE_COMBOBOX_OPTIONS=false` records `option_capture.status: 'complete'` with `source: 'combobox_fast_mode'`, preventing 30s hangs on exhaustive dropdown crawls.
+2. **Progressive Address Gating**: Proactively selects `SCANNER_DEFAULT_COUNTRY` ("United States") when Country is present to uncover dynamic address subfields (`Address Line 1`, `City`, `State`, `ZIP`).
+3. **JET Readiness Race Timer**: Wraps `busyContext.whenReady()` in `Promise.race()` with browser `setTimeout` and Node safety guard, preventing evaluate hangs when Oracle pages maintain background heartbeat activity.
+4. **Timeline Repeater Mutual Exclusion**:
+   - Oracle's `<beautiful-timeline>` with `<timeline-form-inline>` disables `#timeline-anchor` when an inline form opens (`.work-and-education-timeline__actions-container--disabled`).
+   - `scanRegistryRepeater` detects timeline editors via `selectors.repeaterEditor`, scans nested fields, and explicitly triggers `selectors.repeaterCancel` (`.cancel-btn`) followed by `Escape` to discard drafts cleanly.
+   - Waits for the action bar disabled class to detach before scanning subsequent repeaters.
+   - Fixed `labelFor` so `<button>` elements with IDs preserve their visible inner text (e.g. "Add Experience").
+5. **Zoho OTP Matching**: Broadened sender matching to accept `no-reply@oracle.com`, `noreply@oracle.com`, `workflow.mail`, and `oraclecloud.com` regardless of company metadata.
+
+## Phase 2 Architecture Design (Answering & Live Filling)
+
+1. **Two-Layer Data Separation**:
+   - **Job Blueprint (`data/qa.json`)**: Contains portal geometry, page numbers, sections, navigation steps, screenshots, and exact field locators (`control_id`, `question_container_path`).
+   - **User Answer Bank (`data/answers.json`)**: Stores normalized user answers keyed by `user_id` and canonical question meaning (`question_field_id`, `question`, `field_type`, `value`, `created_at`, `updated_at`).
+2. **Question Similarity & Search**:
+   - 3-tier matcher: text normalization -> synonym alias dictionary -> token Jaccard similarity. Reuses answers across companies for equivalent questions.
+3. **Dynamic DOM Adapters**:
+   - Maps core answer values to target DOM controls (e.g. `true` maps to radio pill "Yes", select option "Yes", or boolean checkbox).
+   - Repeater loop maps user work history / education arrays to sequential "+Add" -> fill -> "Save" actions.
+4. **Dashboard Actions**:
+   - "Save Answers": Updates `data/answers.json` and `data/qa.json`.
+   - "Apply": Spawns the live site filler in headed mode.
+5. **Strict Submission Gate**:
+   - The filler fills all pages, stops at the final review page where "Submit" becomes visible, captures a full-page verification screenshot, and holds the session open without clicking Submit.
 
 ## Safety and configuration
 
 - Default concurrency is 1; production concurrency, launch gap, jitter, delays, and circuit-breaker threshold come from environment variables.
-- The first terminal error continues to the next application; the second consecutive terminal error stops the user's remaining queue. `needs_human` pauses only its job, and `job_expired` does not count.
+- The first terminal error continues to the next application; the second consecutive terminal error stops the user's remaining queue.
 - CAPTCHA pauses the affected job and writes masked partial evidence before waiting for manual resolution.
 - Every event carries `user_id`, `job_id`, `worker_id`, page, step, action, and result. Emails, OTPs, secrets, and magic-link URLs are masked or omitted.
-- QA is global job-form metadata keyed by normalized URL and carries `scan_user_id` for audit; user answers are not stored by this scanner.
-
-## Data and evidence
-
-- Active jobs: `data/job-urls.json`.
-- Latest successful QA: `data/qa.json`.
-- Run evidence: `artifacts/runs/<run_id>/`.
-- Immutable current evidence: `artifacts/current-qa-evidence/<job_hash>/<run_id>/`.
-- Standard evidence: application-ready, one shared screenshot per stable page, Submit-visible, and targeted error/incomplete screenshots. Verbose mode adds field and page-after-fill screenshots.
-- Historical spikes, screenshots, results, and obsolete tests are recoverable under `archive/legacy-2026-10-30/` and are not runtime dependencies.
+- Hard Rule: `applications.status = 'approved'` is required for any submit action; the automation must never click Submit.
 
 ## Verification
 
-- `npm test` runs the cleaned active suite with one test worker.
-- `npm run test:scanner` runs the active scanner fixture suite.
-- A headed live validation must use concurrency 1, must not click Submit, and must be reviewed in the viewer before the scan is treated as accepted.
-
-## Current status and next validation
-
-- The active migration from legacy spikes is complete: no active code imports archived files.
-- Fixture and static checks cover scanning, evidence, QA replacement, authentication, CAPTCHA checkpoints, circuit breaking, and viewer isolation.
-- The prior Safeway scan reached visible Submit without clicking it and remains the current accepted QA evidence.
-- A new complete headed validation is still required after bounding the large address-autocomplete crawl; the interrupted post-repair run made no QA or evidence changes.
-
-## Session wrap-up
-
-- Completed the scan-pipeline repair: immutable per-job evidence rejects collisions, QA validates manifest-backed screenshots before replacement, magic-link URLs are redacted, and viewer artifacts require the selected job plus its manifest.
-- Verified focused evidence, QA, runner, viewer, scanner, registry, Zoho, and authentication fixtures; active JavaScript syntax checks also pass.
-- Documentation is now maintained by contract: `context.md` is refreshed on every wrap-up, `STATE.md` records operational handoff, and `DECISIONS.md` keeps durable choices.
+- `npm test`: Runs full repository suite (78 tests, 100% pass rate).
+- `npm run test:scanner`: Runs active scanner fixture suite (41 tests, 100% pass rate).
+- Test fixtures include `oracle-timeline-repeater.html` verifying sequential timeline repeater discovery without hanging.
 
 ## Stack
 

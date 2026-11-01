@@ -18,3 +18,7 @@
 - 2026-10-28: Group custom Oracle radio/checkbox buttons by the stable question container, not the option label or global index. Why: one safe, scoped field record preserves all options and prevents cross-question filling.
 - 2026-10-28: Repeater schemas are sampled once and rendered inactive in the viewer. Why: repeated entries share a schema, while the viewer must remain evidence-only.
 - 2026-10-30: `context.md` is the overwritten authoritative technical snapshot; `STATE.md` is the short operational handoff; `DECISIONS.md` remains append-only. Why: keeps current instructions easy to find without losing decision history.
+- 2026-10-30: Fast combobox capture mode and progressive country gating. Why: eliminates 30s dropdown scrolling hangs while revealing hidden address subfields on country select.
+- 2026-10-30: Dual-layer timeout race on Oracle JET `whenReady` capped at 2000ms. Why: prevents evaluate hangs when pages run background heartbeats without entering quiescent state.
+- 2026-10-30: Timeline repeaters require explicit `.cancel-btn` dismissal and action bar unlock wait. Why: discarding draft avoids blur validation errors and unblocks subsequent timeline buttons.
+- 2026-10-30: Two-layer architecture for Phase 2: Job Blueprint (`qa.json`) and User Answer Bank. Why: keeps portal geometry/page layout separated from reusable normalized candidate answers.
