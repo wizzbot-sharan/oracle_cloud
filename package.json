@@ -5,6 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "scan": "node scripts/scan.js",
+    "apply": "node scripts/apply.js",
     "viewer": "node viewer/server.js",
     "test:scanner": "node --test --test-concurrency=1 test/scanner/*.test.js",
     "test": "node --test --test-concurrency=1 test/*.test.js test/scanner/*.test.js"

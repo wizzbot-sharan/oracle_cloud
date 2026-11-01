@@ -39,7 +39,6 @@ module.exports = Object.freeze({
   autoSuggestDropdown: '.cx-select__drop--suggestions, [role="listbox"][id*="suggest" i]',
   repeaterEditor: [
     '.standard-apply-flow-timeline-form:visible',
-    '.timeline-form-content:visible',
     'timeline-form-inline:visible',
     '.profile-item-content--form:visible',
     '.profile-item-content:visible',
@@ -55,4 +54,12 @@ module.exports = Object.freeze({
   ].join(', '),
   timelineAnchor: '#timeline-anchor',
   timelineDisabledAnchor: '#timeline-anchor.work-and-education-timeline__actions-container--disabled',
+  repeaterSave: [
+    '.timeline-form-footer .save-btn:visible',
+    'button.save-btn:visible',
+    '.save-btn:visible',
+    'button:has-text("Save"):visible',
+    'button:has-text("Add"):visible',
+    '[data-qa="addTimelineItemDialogButton"]:visible',
+  ].join(', '),
 });

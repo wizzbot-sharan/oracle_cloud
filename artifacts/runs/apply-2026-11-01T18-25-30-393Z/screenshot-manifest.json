@@ -1,0 +1,13 @@
+[
+  {
+    "sequence": 1,
+    "user_id": "default_user",
+    "job_id": "job-1",
+    "worker_id": 1,
+    "run_id": "apply-2026-11-01T18-25-30-393Z",
+    "page": 0,
+    "step": "application_ready",
+    "kind": "application_ready",
+    "file": "screenshots/00001-job-1-application_ready.png"
+  }
+]

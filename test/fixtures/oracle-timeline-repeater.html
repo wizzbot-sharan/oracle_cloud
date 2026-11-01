@@ -98,15 +98,19 @@
       eduForm.style.display = 'block';
     });
 
-    expForm.querySelector('.cancel-btn').addEventListener('click', () => {
+    const closeExp = () => {
       expForm.style.display = 'none';
       anchor.classList.remove('work-and-education-timeline__actions-container--disabled');
-    });
-
-    eduForm.querySelector('.cancel-btn').addEventListener('click', () => {
+    };
+    const closeEdu = () => {
       eduForm.style.display = 'none';
       anchor.classList.remove('work-and-education-timeline__actions-container--disabled');
-    });
+    };
+
+    expForm.querySelector('.cancel-btn').addEventListener('click', closeExp);
+    expForm.querySelector('.save-btn').addEventListener('click', closeExp);
+    eduForm.querySelector('.cancel-btn').addEventListener('click', closeEdu);
+    eduForm.querySelector('.save-btn').addEventListener('click', closeEdu);
   </script>
 </body>
 </html>

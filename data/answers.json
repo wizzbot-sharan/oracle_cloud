@@ -1,0 +1,288 @@
+{
+  "schema_version": "answers-v1",
+  "updated_at": "2026-11-01T17:58:58.429Z",
+  "users": {
+    "default_user": {
+      "user_id": "default_user",
+      "profile": {
+        "first_name": "Sharan",
+        "last_name": "Srikar",
+        "preferred_first_name": "Sharan",
+        "middle_name": "",
+        "title": "Mr.",
+        "email": "sharan@example.com",
+        "phone": {
+          "country_code": "+1",
+          "number": "5551234567"
+        },
+        "address": {
+          "line1": "123 Main St",
+          "line2": "",
+          "city": "Seattle",
+          "state": "WA",
+          "postal_code": "98101",
+          "county": "King",
+          "country": "United States"
+        },
+        "resume_path": "data/fixtures/dummy-resume.txt"
+      },
+      "answers": [
+        {
+          "question_field_id": "hear-about-job",
+          "question": "How did you hear about this job?",
+          "field_type": "single_choice",
+          "value": "Job Fair",
+          "created_at": "2026-11-01T15:00:00.000Z",
+          "updated_at": "2026-11-01T17:58:58.427Z"
+        },
+        {
+          "question_field_id": "authorized-to-work-us",
+          "question": "Are you legally authorized to work in the United States?",
+          "field_type": "single_choice",
+          "value": "Yes",
+          "created_at": "2026-11-01T15:00:00.000Z",
+          "updated_at": "2026-11-01T15:00:00.000Z"
+        },
+        {
+          "question_field_id": "require-visa-sponsorship",
+          "question": "Will you now or in the future require employment visa sponsorship?",
+          "field_type": "single_choice",
+          "value": "No",
+          "created_at": "2026-11-01T15:00:00.000Z",
+          "updated_at": "2026-11-01T15:00:00.000Z"
+        },
+        {
+          "question_field_id": "age-18-or-older",
+          "question": "Are you 18 years of age or older?",
+          "field_type": "single_choice",
+          "value": "Yes",
+          "created_at": "2026-11-01T15:00:00.000Z",
+          "updated_at": "2026-11-01T15:00:00.000Z"
+        },
+        {
+          "question_field_id": "consent-automated-tools",
+          "question": "Yes – I consent to the use of automated tools for the initial review of my application.",
+          "field_type": "single_choice",
+          "value": "300001554455674",
+          "created_at": "2026-11-01T15:00:00.000Z",
+          "updated_at": "2026-11-01T17:58:58.428Z"
+        },
+        {
+          "question_field_id": "receive-job-updates",
+          "question": "I agree to receive updates about new job opportunities.",
+          "field_type": "boolean_checkbox",
+          "value": "on",
+          "created_at": "2026-11-01T15:00:00.000Z",
+          "updated_at": "2026-11-01T17:58:58.428Z"
+        },
+        {
+          "question_field_id": "receive-marketing-comms",
+          "question": "I agree to receive marketing communications",
+          "field_type": "boolean_checkbox",
+          "value": "on",
+          "created_at": "2026-11-01T15:00:00.000Z",
+          "updated_at": "2026-11-01T17:58:58.428Z"
+        },
+        {
+          "question_field_id": "supporting-link-1",
+          "question": "Supporting Documents and URLs Link 1",
+          "field_type": "text",
+          "value": "https://linkedin.com/in/sharansrikar",
+          "created_at": "2026-11-01T15:00:00.000Z",
+          "updated_at": "2026-11-01T17:58:58.428Z"
+        },
+        {
+          "question_field_id": "contact-information-last-name-2d821e91",
+          "question": "Last Name",
+          "field_type": "text",
+          "value": "Srikar",
+          "created_at": "2026-11-01T17:58:58.426Z",
+          "updated_at": "2026-11-01T17:58:58.426Z"
+        },
+        {
+          "question_field_id": "contact-information-first-name-b2504ee3",
+          "question": "First Name",
+          "field_type": "text",
+          "value": "Sharan",
+          "created_at": "2026-11-01T17:58:58.426Z",
+          "updated_at": "2026-11-01T17:58:58.426Z"
+        },
+        {
+          "question_field_id": "contact-information-title-0d48606f",
+          "question": "Title",
+          "field_type": "text",
+          "value": "Mr.",
+          "created_at": "2026-11-01T17:58:58.426Z",
+          "updated_at": "2026-11-01T17:58:58.426Z"
+        },
+        {
+          "question_field_id": "contact-information-middle-name-465feeec",
+          "question": "Middle Name",
+          "field_type": "text",
+          "value": "okokok",
+          "created_at": "2026-11-01T17:58:58.426Z",
+          "updated_at": "2026-11-01T17:58:58.426Z"
+        },
+        {
+          "question_field_id": "contact-information-preferred-first-name-aecc580e",
+          "question": "Preferred First Name",
+          "field_type": "text",
+          "value": "Sharan",
+          "created_at": "2026-11-01T17:58:58.426Z",
+          "updated_at": "2026-11-01T17:58:58.426Z"
+        },
+        {
+          "question_field_id": "contact-information-email-address-d64c12c2",
+          "question": "Email Address",
+          "field_type": "text",
+          "value": "sharan@example.com",
+          "created_at": "2026-11-01T17:58:58.426Z",
+          "updated_at": "2026-11-01T17:58:58.426Z"
+        },
+        {
+          "question_field_id": "contact-information-unlabelled-div-a8d62506",
+          "question": "Unlabelled div",
+          "field_type": "text",
+          "value": "+1 123456678",
+          "created_at": "2026-11-01T17:58:58.426Z",
+          "updated_at": "2026-11-01T17:58:58.426Z"
+        },
+        {
+          "question_field_id": "address-country-97992db1",
+          "question": "Country",
+          "field_type": "text",
+          "value": "United States",
+          "created_at": "2026-11-01T17:58:58.426Z",
+          "updated_at": "2026-11-01T17:58:58.426Z"
+        },
+        {
+          "question_field_id": "address-address-line-1-b41435eb",
+          "question": "Address Line 1",
+          "field_type": "text",
+          "value": "okokok",
+          "created_at": "2026-11-01T17:58:58.426Z",
+          "updated_at": "2026-11-01T17:58:58.426Z"
+        },
+        {
+          "question_field_id": "address-zip-code-96294e8f",
+          "question": "ZIP Code",
+          "field_type": "text",
+          "value": "98101",
+          "created_at": "2026-11-01T17:58:58.426Z",
+          "updated_at": "2026-11-01T17:58:58.426Z"
+        },
+        {
+          "question_field_id": "address-city-9cd637a3",
+          "question": "City",
+          "field_type": "text",
+          "value": "Seattle",
+          "created_at": "2026-11-01T17:58:58.426Z",
+          "updated_at": "2026-11-01T17:58:58.426Z"
+        },
+        {
+          "question_field_id": "address-state-20dc0f33",
+          "question": "State",
+          "field_type": "text",
+          "value": "WA",
+          "created_at": "2026-11-01T17:58:58.426Z",
+          "updated_at": "2026-11-01T17:58:58.426Z"
+        },
+        {
+          "question_field_id": "address-county-267d7a65",
+          "question": "County",
+          "field_type": "text",
+          "value": "King",
+          "created_at": "2026-11-01T17:58:58.427Z",
+          "updated_at": "2026-11-01T17:58:58.427Z"
+        },
+        {
+          "question_field_id": "application-questions-yes-d8fa32d4",
+          "question": "Yes",
+          "field_type": "text",
+          "value": "300001554455587",
+          "created_at": "2026-11-01T17:58:58.427Z",
+          "updated_at": "2026-11-01T17:58:58.428Z"
+        },
+        {
+          "question_field_id": "application-questions-please-provide-the-name-of-the-83776db7",
+          "question": "Please provide the name of the entity and the last position you held.",
+          "field_type": "text",
+          "value": "bjbjbjjkkk",
+          "created_at": "2026-11-01T17:58:58.427Z",
+          "updated_at": "2026-11-01T17:58:58.428Z"
+        },
+        {
+          "question_field_id": "application-questions-please-provide-which-deloitte--2b1e16ef",
+          "question": "Please provide which Deloitte entity you were employed with and the years of employment.",
+          "field_type": "text",
+          "value": "no",
+          "created_at": "2026-11-01T17:58:58.427Z",
+          "updated_at": "2026-11-01T17:58:58.428Z"
+        },
+        {
+          "question_field_id": "application-questions-please-provide-any-additional--21696682",
+          "question": "Please provide any additional context you would like.",
+          "field_type": "text",
+          "value": "okkkk",
+          "created_at": "2026-11-01T17:58:58.427Z",
+          "updated_at": "2026-11-01T17:58:58.428Z"
+        },
+        {
+          "question_field_id": "application-questions-please-provide-their-name-s-an-98775045",
+          "question": "Please provide their name(s) and relation(s) to you, what agency (i.e. self or parent), including the name of the entity or agency, the position held and the dates of employment.",
+          "field_type": "text",
+          "value": "noio",
+          "created_at": "2026-11-01T17:58:58.428Z",
+          "updated_at": "2026-11-01T17:58:58.428Z"
+        },
+        {
+          "question_field_id": "application-questions-please-provide-the-name-of-the-7f5d2956",
+          "question": "Please provide the name of the entity or agency, the position held and the dates of employment.",
+          "field_type": "text",
+          "value": "gjhhj",
+          "created_at": "2026-11-01T17:58:58.428Z",
+          "updated_at": "2026-11-01T17:58:58.428Z"
+        },
+        {
+          "question_field_id": "e-signature-full-name-1bcb0f3b",
+          "question": "Full Name",
+          "field_type": "text",
+          "value": "Sharan Srikar",
+          "created_at": "2026-11-01T17:58:58.428Z",
+          "updated_at": "2026-11-01T17:58:58.428Z"
+        }
+      ],
+      "repeaters": {
+        "work_experience": [
+          {
+            "employerName": "Acme Corp",
+            "jobTitle": "Software Engineer",
+            "startDate": {
+              "month": "01",
+              "year": "2022"
+            },
+            "endDate": {
+              "month": "12",
+              "year": "2024"
+            },
+            "currentJobFlag": false
+          }
+        ],
+        "education": [
+          {
+            "school": "University of Technology",
+            "degree": "Bachelor of Science",
+            "startDate": {
+              "month": "08",
+              "year": "2018"
+            },
+            "endDate": {
+              "month": "05",
+              "year": "2022"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

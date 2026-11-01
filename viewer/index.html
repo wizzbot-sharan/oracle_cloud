@@ -3,50 +3,96 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Oracle Question Scan Viewer</title>
+  <title>Oracle Application Question & Answer Dashboard</title>
   <style>
-    :root { --ink:#243746; --muted:#647685; --blue:#087ea4; --red:#dc2435; --line:#d9e1e5; --soft:#f5f8fa; --warn:#fff4d6; }
+    :root { --ink:#243746; --muted:#647685; --blue:#087ea4; --green:#107c41; --red:#dc2435; --line:#d9e1e5; --soft:#f5f8fa; --warn:#fff4d6; }
     * { box-sizing:border-box; } body { margin:0; color:var(--ink); background:#eef2f4; font:14px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    header { padding:18px 28px; color:white; background:linear-gradient(100deg,#243746,#087ea4); display:flex; justify-content:space-between; align-items:center; gap:20px; }
-    header h1 { margin:0; font-size:20px; font-weight:650; } header p { margin:4px 0 0; opacity:.82; }
-    select, button { font:inherit; } select { min-width:300px; padding:10px 12px; border:1px solid #b9c8d0; border-radius:6px; background:white; color:var(--ink); }
+    header { padding:14px 24px; color:white; background:linear-gradient(100deg,#243746,#087ea4); display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+    header h1 { margin:0; font-size:18px; font-weight:650; } header p { margin:2px 0 0; opacity:.85; font-size:12px; }
+    .header-actions { display:flex; gap:10px; align-items:center; }
+    select, button { font:inherit; } select { min-width:240px; padding:8px 10px; border:1px solid #b9c8d0; border-radius:6px; background:white; color:var(--ink); }
+    .btn { padding:8px 14px; border:0; border-radius:6px; font-weight:600; cursor:pointer; transition:all .15s ease; }
+    .btn-save { background:#28a745; color:white; } .btn-save:hover { background:#218838; }
+    .btn-apply { background:#ffc107; color:#212529; } .btn-apply:hover { background:#e0a800; }
+    .btn-submit { background:#007bff; color:white; } .btn-submit:hover:not(:disabled) { background:#0056b3; } .btn-submit:disabled { opacity:.5; cursor:not-allowed; }
+    .status-msg { font-size:12px; font-weight:bold; padding:4px 8px; border-radius:4px; display:none; }
+    .status-msg.success { display:inline-block; background:#d4edda; color:#155724; }
+    .status-msg.info { display:inline-block; background:#cce5ff; color:#004085; }
     main { display:grid; grid-template-columns:260px minmax(420px,1fr) minmax(320px,420px); gap:18px; padding:18px; max-width:1800px; margin:auto; }
-    .panel { background:white; border:1px solid var(--line); border-radius:10px; box-shadow:0 2px 10px #1837460d; overflow:hidden; } .panel-head { padding:14px 16px; border-bottom:1px solid var(--line); }
+    .panel { background:white; border:1px solid var(--line); border-radius:10px; box-shadow:0 2px 10px #1837460d; overflow:hidden; } .panel-head { padding:14px 16px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; }
     .panel-head h2 { margin:0; font-size:15px; } .panel-body { padding:14px 16px; } .job-list { max-height:calc(100vh - 155px); overflow:auto; }
     .job { width:100%; display:block; padding:12px 14px; border:0; border-bottom:1px solid #edf1f3; background:white; color:var(--ink); text-align:left; cursor:pointer; } .job:hover,.job.active { background:#eaf7fb; }
     .job strong { display:block; font-size:13px; } .job small { color:var(--muted); display:block; margin-top:4px; } .status { color:#16834b; font-weight:650; }
-    .summary { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; } .metric { min-width:94px; padding:10px 12px; background:var(--soft); border-radius:7px; } .metric b { display:block; font-size:20px; } .metric span { color:var(--muted); font-size:11px; }
     .page { margin:0 0 22px; } .page-title { display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--blue); padding:0 0 8px; margin-bottom:12px; } .page-title h2 { margin:0; font-size:18px; }
     .section { margin:14px 0 20px; } .section h3 { margin:0 0 9px; font-size:14px; color:var(--blue); text-transform:uppercase; letter-spacing:.04em; }
     fieldset { margin:8px 0; padding:11px 12px; border:1px solid var(--line); border-radius:7px; background:#fff; } fieldset.missing { border-color:#e9b93f; background:var(--warn); }
-    legend { padding:0 5px; font-weight:650; } .field-meta { color:var(--muted); font-size:11px; margin-bottom:7px; } .badge { display:inline-block; padding:2px 6px; border-radius:10px; background:#e4f2f6; color:#11647e; margin-right:4px; }
-    .fake-control { width:100%; min-height:32px; border:1px solid #bdcbd2; border-radius:4px; background:#fafcfd; padding:7px 9px; color:#84939b; } .fake-options { display:flex; flex-wrap:wrap; gap:5px; margin-top:8px; } .fake-option { padding:5px 8px; border:1px solid #c4d2d8; border-radius:4px; background:white; color:var(--ink); }
-    .choice-preview { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; } .choice-preview label { padding:7px 9px; border:1px solid #bdcbd2; border-radius:5px; background:#fafcfd; } .choice-preview input { margin-right:5px; } .repeater-preview { margin-top:8px; } .repeater-preview button { padding:7px 10px; border:1px solid #bdcbd2; border-radius:4px; color:#647685; background:#f6f8f9; } .repeater-preview details { margin-top:8px; } .schema-list { margin:7px 0 0; padding-left:20px; color:var(--muted); }
-    .viewer-control { display:block; width:100%; min-height:34px; margin-top:5px; padding:7px 9px; border:1px solid #9fb3bd; border-radius:5px; background:white; color:var(--ink); } .viewer-control-wrap { display:flex; gap:8px; align-items:center; flex-wrap:wrap; } .repeater-card { margin-top:8px; padding:10px; border:1px dashed #9fb3bd; border-radius:6px; background:#f7fafb; } .repeater-card label { display:block; margin-top:7px; } .repeater-card button { margin-top:8px; }
+    legend { padding:0 5px; font-weight:650; } .field-meta { color:var(--muted); font-size:11px; margin-bottom:7px; display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+    .badge { display:inline-block; padding:2px 6px; border-radius:10px; background:#e4f2f6; color:#11647e; }
+    .badge-success { background:#d4edda; color:#155724; font-weight:600; }
+    .badge-pending { background:#fff3cd; color:#856404; font-weight:600; }
+    .fake-control { width:100%; min-height:32px; border:1px solid #bdcbd2; border-radius:4px; background:#fafcfd; padding:7px 9px; color:#84939b; }
+    .choice-preview { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; } .choice-preview label { padding:7px 9px; border:1px solid #bdcbd2; border-radius:5px; background:#fafcfd; cursor:pointer; } .choice-preview input { margin-right:5px; } .repeater-preview { margin-top:8px; } .repeater-preview button { padding:7px 10px; border:1px solid #bdcbd2; border-radius:4px; color:#647685; background:#f6f8f9; cursor:pointer; } .repeater-preview details { margin-top:8px; } .schema-list { margin:7px 0 0; padding-left:20px; color:var(--muted); }
+    .viewer-control { display:block; width:100%; min-height:34px; margin-top:5px; padding:7px 9px; border:1px solid #9fb3bd; border-radius:5px; background:white; color:var(--ink); } .viewer-control-wrap { display:flex; gap:8px; align-items:center; flex-wrap:wrap; } .repeater-card { margin-top:8px; padding:10px; border:1px dashed #9fb3bd; border-radius:6px; background:#f7fafb; } .repeater-card label { display:block; margin-top:7px; } .repeater-card button { margin-top:8px; cursor:pointer; }
     .notice { padding:9px 10px; border-radius:5px; background:var(--warn); color:#765600; font-size:12px; } .empty { color:var(--muted); padding:30px 10px; text-align:center; }
-    .shot { position:sticky; top:18px; } .shot img { display:block; width:100%; max-height:60vh; object-fit:contain; background:#f4f6f7; border-bottom:1px solid var(--line); } .shot-caption { padding:10px 14px; color:var(--muted); font-size:12px; word-break:break-word; }
+    .shot { position:sticky; top:18px; } .shot img { display:block; width:100%; max-height:55vh; object-fit:contain; background:#f4f6f7; border-bottom:1px solid var(--line); } .shot-caption { padding:10px 14px; color:var(--muted); font-size:12px; word-break:break-word; }
     .coverage-list { margin:0; padding-left:18px; color:var(--muted); line-height:1.7; } .hint { color:var(--muted); font-size:12px; line-height:1.5; }
-    @media (max-width:1050px) { main { grid-template-columns:220px 1fr; } .shot { grid-column:1/-1; position:static; } .shot img { max-height:420px; } }
-    @media (max-width:700px) { header { display:block; } header select { width:100%; margin-top:12px; } main { display:block; padding:10px; } .panel { margin-bottom:12px; } .job-list { max-height:260px; } }
+    .review-banner { background:#fff3cd; border:1px solid #ffeeba; color:#856404; padding:12px; border-radius:6px; margin-bottom:12px; font-weight:600; display:none; }
   </style>
 </head>
 <body>
-  <header><div><h1>Oracle Application Question Viewer</h1><p>Local interactive reconstruction; no Oracle submission or answer persistence.</p></div><select id="jobSelect" aria-label="Select scanned application"></select></header>
+  <header>
+    <div>
+      <h1>Oracle Job Application & Answer Dashboard</h1>
+      <p>Answer bank sync, human-speed filling, and dashboard-controlled submit gate.</p>
+    </div>
+    <div class="header-actions">
+      <select id="jobSelect" aria-label="Select scanned application"></select>
+      <button id="btnSaveAnswers" class="btn btn-save" title="Save answers to Answer Bank & QA">💾 Save Answers</button>
+      <button id="btnApplyJob" class="btn btn-apply" title="Fill live job with human speed">🚀 Apply</button>
+      <button id="btnApproveSubmit" class="btn btn-submit" disabled title="Requires reviewing final page before submit">✅ Approve & Submit</button>
+      <span id="statusMsg" class="status-msg"></span>
+    </div>
+  </header>
   <main>
-    <aside class="panel"><div class="panel-head"><h2>Scanned applications</h2></div><div id="jobList" class="job-list"></div></aside>
-    <section class="panel"><div class="panel-head"><h2 id="formTitle">Choose a scan</h2></div><div id="form" class="panel-body"><div class="empty">Select an application to reconstruct its sections and fields.</div></div></section>
-    <aside class="panel shot"><div class="panel-head"><h2>Original evidence</h2></div><img id="screenshot" alt="Original scanner screenshot"><div id="caption" class="shot-caption">Field screenshots appear here when you select a field.</div><div class="panel-body"><h2 style="font-size:15px">Coverage</h2><ul id="coverage" class="coverage-list"></ul><p class="hint">Yellow fields indicate that the artifact does not contain option values. This viewer never fills or submits anything.</p></div></aside>
+    <aside class="panel"><div class="panel-head"><h2>Applications</h2></div><div id="jobList" class="job-list"></div></aside>
+    <section class="panel">
+      <div class="panel-head">
+        <h2 id="formTitle">Choose an application</h2>
+      </div>
+      <div id="reviewBanner" class="review-banner">
+        ⚠️ Review screenshot is ready below! All fields filled. Click "Approve & Submit" in header when ready.
+      </div>
+      <div id="form" class="panel-body"><div class="empty">Select an application to view and answer its questions.</div></div>
+    </section>
+    <aside class="panel shot">
+      <div class="panel-head"><h2>Evidence / Review</h2></div>
+      <img id="screenshot" alt="Review screenshot">
+      <div id="caption" class="shot-caption">Field screenshots appear here when you select a field.</div>
+      <div class="panel-body">
+        <h2 style="font-size:14px">Summary</h2>
+        <ul id="coverage" class="coverage-list"></ul>
+      </div>
+    </aside>
   </main>
   <script>
     let index; let selected;
     const $ = (id) => document.getElementById(id);
     const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-    function imageFor(entry) { return entry?.file ? '/artifacts/' + encodeURIComponent(selected.run_id) + '/' + entry.file.split('/').map(encodeURIComponent).join('/') : ''; }
     function selectJob(key) { loadJob(key); }
+
+    function showStatus(text, type = 'success', durationMs = 3500) {
+      const el = $('statusMsg');
+      el.textContent = text;
+      el.className = 'status-msg ' + type;
+      if (durationMs > 0) setTimeout(() => { el.style.display = 'none'; }, durationMs);
+    }
+
     async function loadJob(key) {
       const response = await fetch('/api/job?key=' + encodeURIComponent(key));
-      selected = await response.json(); render();
+      selected = await response.json();
+      render();
     }
+
     function renderJobs() {
       const jobs = index.jobs;
       $('jobList').innerHTML = jobs.map((j, i) => `<button class="job ${i===0?'active':''}" data-key="${esc(j.qa_key)}"><strong>${esc(j.company)}</strong><small>${esc(j.job_id)} · ${j.pages} pages · ${j.fields} fields</small><small class="status">${esc(j.status)}</small></button>`).join('') || '<div class="empty">No QA records found.</div>';
@@ -54,46 +100,46 @@
       document.querySelectorAll('.job').forEach((button) => button.onclick = () => { document.querySelectorAll('.job').forEach((b)=>b.classList.remove('active')); button.classList.add('active'); selectJob(button.dataset.key); });
       $('jobSelect').onchange = (event) => selectJob(event.target.value);
     }
-    const localState = { values: Object.create(null), repeaters: Object.create(null) };
-    function fieldKey(field) { return String(field.field_id || '').replace(/[^a-zA-Z0-9_-]/g, '_'); }
+
+    const localState = { repeaters: Object.create(null) };
+    function fieldKey(field) { return String(field.canonical_id || field.field_id || '').replace(/[^a-zA-Z0-9_-]/g, '_'); }
     function optionLabel(option) { return typeof option === 'string' ? option : option?.label || option?.value || ''; }
+
     function choicePreview(field) {
       const multi = field.type === 'checkbox_group'; const kind = multi ? 'checkbox' : 'radio'; const key = fieldKey(field);
-      return '<div class="choice-preview" data-field-id="' + esc(field.field_id) + '">' + (field.options||[]).map((option, index) => `<label><input type="${kind}" name="field-${key}" value="${esc(typeof option === 'string' ? option : option.value || option.label)}" data-field-id="${esc(field.field_id)}" data-option-index="${index}">${esc(optionLabel(option))}</label>`).join('') + '</div>';
+      const curVal = field.value;
+      return '<div class="choice-preview" data-field-id="' + esc(field.field_id) + '">' + (field.options||[]).map((option, index) => {
+        const optVal = typeof option === 'string' ? option : option.value || option.label;
+        const optLbl = optionLabel(option);
+        const isChecked = Array.isArray(curVal) ? curVal.includes(optVal) || curVal.includes(optLbl) : (curVal === optVal || curVal === optLbl || (curVal === true && /yes|true/i.test(optLbl)));
+        return `<label><input type="${kind}" name="field-${key}" value="${esc(optVal)}" ${isChecked ? 'checked' : ''} data-field-id="${esc(field.field_id)}" data-canonical-id="${esc(field.canonical_id || field.field_id)}" data-question="${esc(field.label)}">${esc(optLbl)}</label>`;
+      }).join('') + '</div>';
     }
-    function repeaterSchemaControl(item, instance) {
+
+    function repeaterSchemaControl(item, instance, initialVal = {}) {
       const key = fieldKey(item) + '-' + instance;
-      if (item.type === 'textarea') return `<label>${esc(item.label)}<textarea class="viewer-control" data-local-field="${key}"></textarea></label>`;
-      if (['single_choice','radio_group','checkbox_group'].includes(item.type)) return `<fieldset><legend>${esc(item.label)}</legend>${(item.options||[]).map((option, index)=>`<label><input type="${item.type === 'checkbox_group' ? 'checkbox' : 'radio'}" name="local-${key}" value="${esc(optionLabel(option))}">${esc(optionLabel(option))}</label>`).join('')}</fieldset>`;
-      if (item.type === 'native_select' || item.type === 'combobox') return `<label>${esc(item.label)}<select class="viewer-control" data-local-field="${key}"><option value="">Select…</option>${(item.options||[]).map((option)=>`<option value="${esc(optionLabel(option))}">${esc(optionLabel(option))}</option>`).join('')}</select></label>`;
-      return `<label>${esc(item.label)}<input class="viewer-control" type="${item.type === 'number' ? 'number' : 'text'}" data-local-field="${key}"></label>`;
+      const val = initialVal[item.locator?.control_name || item.field_id] || '';
+      if (item.type === 'textarea') return `<label>${esc(item.label)}<textarea class="viewer-control" data-local-field="${key}">${esc(val)}</textarea></label>`;
+      if (['single_choice','radio_group','checkbox_group'].includes(item.type)) return `<fieldset><legend>${esc(item.label)}</legend>${(item.options||[]).map((option)=>`<label><input type="${item.type === 'checkbox_group' ? 'checkbox' : 'radio'}" name="local-${key}" value="${esc(optionLabel(option))}" ${val === optionLabel(option)?'checked':''}>${esc(optionLabel(option))}</label>`).join('')}</fieldset>`;
+      return `<label>${esc(item.label)}<input class="viewer-control" type="${item.type === 'number' ? 'number' : 'text'}" data-local-field="${key}" value="${esc(val)}"></label>`;
     }
-    function addRepeater(fieldId) {
+
+    function addRepeater(fieldId, initialVal = {}) {
       const field = window.__fieldById?.[fieldId]; if (!field) return;
       const list = document.querySelector(`[data-repeater-list="${CSS.escape(fieldId)}"]`); if (!list) return;
       const instance = (localState.repeaters[fieldId] = (localState.repeaters[fieldId] || 0) + 1);
       const schema = field.repeater_schema || field.repeatable_fields || [];
       const card = document.createElement('div'); card.className = 'repeater-card'; card.dataset.instance = String(instance);
-      card.innerHTML = `<strong>${esc(field.label)} ${instance}</strong>${schema.map((item)=>repeaterSchemaControl(item, instance)).join('')}<button type="button" data-remove-repeater="${esc(fieldId)}" data-instance="${instance}">Remove</button>`;
+      card.innerHTML = `<strong>${esc(field.label)} #${instance}</strong>${schema.map((item)=>repeaterSchemaControl(item, instance, initialVal)).join('')}<button type="button" data-remove-repeater="${esc(fieldId)}" data-instance="${instance}">Remove</button>`;
       list.appendChild(card);
     }
+
     function repeaterPreview(field) {
       const schema = field.repeater_schema || field.repeatable_fields || [];
-      const schemaHtml = schema.length ? `<details><summary>Detected nested fields (${schema.length})</summary><ul class="schema-list">${schema.map((item)=>`<li>${esc(item.label)} <span class="badge">${esc(item.type)}</span></li>`).join('')}</ul></details>` : '<div class="hint">Nested schema was not opened or could not be safely resolved.</div>';
-      return `<div class="repeater-preview"><button type="button" data-add-repeater="${esc(field.field_id)}">${esc(field.label)}</button><div data-repeater-list="${esc(field.field_id)}"></div>${schemaHtml}</div>`;
+      const schemaHtml = schema.length ? `<details><summary>Detected nested fields (${schema.length})</summary><ul class="schema-list">${schema.map((item)=>`<li>${esc(item.label)} <span class="badge">${esc(item.type)}</span></li>`).join('')}</ul></details>` : '';
+      return `<div class="repeater-preview"><button type="button" data-add-repeater="${esc(field.field_id)}">+ Add ${esc(field.label)}</button><div data-repeater-list="${esc(field.field_id)}"></div>${schemaHtml}</div>`;
     }
-    function fieldControl(field) {
-      if (field.type === 'unclassified_control') return '<div class="notice">Unclassified control: preview disabled until its target is reviewed.</div>';
-      if (['single_choice','radio_group','checkbox_group'].includes(field.type)) return choicePreview(field);
-      if (field.type === 'repeater') return repeaterPreview(field);
-      if (field.type === 'boolean_checkbox') return `<label><input type="checkbox" data-field-id="${esc(field.field_id)}"> ${esc(field.label)}</label>`;
-      if (field.type === 'file_upload') return `<label class="viewer-control-wrap"><input type="file" data-field-id="${esc(field.field_id)}" accept="${esc(field.constraints?.accept || '')}"><span data-file-name="${esc(field.field_id)}">No file selected</span></label>`;
-      if (field.type === 'phone_composite') return `<div class="phone-composite">${(field.components||[]).map((component, index) => component.type === 'combobox' ? `<label>${esc(component.label)}<select class="viewer-control" data-field-id="${esc(field.field_id)}-component-${index}"><option value="">Select…</option>${(component.options||field.options||[]).map((option)=>`<option value="${esc(optionLabel(option))}">${esc(optionLabel(option))}</option>`).join('')}</select></label>` : `<label>${esc(component.label)}<input class="viewer-control" data-field-id="${esc(field.field_id)}-component-${index}" type="tel"></label>`).join('')}</div>`;
-      if (field.type === 'textarea') return `<textarea class="viewer-control" data-field-id="${esc(field.field_id)}" placeholder="${esc(field.placeholder || '')}"></textarea>`;
-      if (field.type === 'combobox' || field.type === 'native_select') return `<select class="viewer-control" data-field-id="${esc(field.field_id)}"><option value="">Select…</option>${(field.options||[]).map((option)=>`<option value="${esc(optionLabel(option))}">${esc(optionLabel(option))}</option>`).join('')}</select>`;
-      if (field.type === 'date_composite') return `<div class="date-components"><input class="viewer-control" data-field-id="${esc(field.field_id)}-month" placeholder="Month"><input class="viewer-control" data-field-id="${esc(field.field_id)}-day" placeholder="Day"><input class="viewer-control" data-field-id="${esc(field.field_id)}-year" placeholder="Year"></div>`;
-      return `<input class="viewer-control" data-field-id="${esc(field.field_id)}" type="${field.type === 'number' ? 'number' : 'text'}" placeholder="${esc(field.placeholder || '')}">`;
-    }
+
     function optionCaptureEvidence(field) {
       const capture = field.option_capture;
       if (!capture) return '';
@@ -102,44 +148,154 @@
       if (capture.status === 'incomplete') return '<div class="notice">Option capture incomplete (' + esc(count) + ' found): ' + esc(capture.incomplete_reason || 'end of list was not proven') + '</div>';
       return '<div class="hint">Options captured: ' + esc(count) + '</div>';
     }
+
+    function fieldControl(field) {
+      const val = field.value ?? '';
+      if (field.type === 'unclassified_control') return '<div class="notice">Unclassified control: preview disabled.</div>';
+      if (['single_choice','radio_group','checkbox_group'].includes(field.type)) return choicePreview(field);
+      if (field.type === 'repeater') return repeaterPreview(field);
+      if (field.type === 'boolean_checkbox') return `<label><input type="checkbox" data-field-id="${esc(field.field_id)}" data-canonical-id="${esc(field.canonical_id || field.field_id)}" data-question="${esc(field.label)}" ${val===true||val==='Yes'?'checked':''}> ${esc(field.label)}</label>`;
+      if (field.type === 'file_upload') return `<label class="viewer-control-wrap"><input type="file" data-field-id="${esc(field.field_id)}" accept="${esc(field.constraints?.accept || '')}"><span data-file-name="${esc(field.field_id)}">${esc(typeof val === 'string' ? val : 'No file selected')}</span></label>`;
+      if (field.type === 'phone_composite') return `<div class="phone-composite"><input class="viewer-control" data-field-id="${esc(field.field_id)}" data-canonical-id="${esc(field.canonical_id || field.field_id)}" data-question="${esc(field.label)}" placeholder="+1 555-123-4567" value="${esc(typeof val === 'object' ? (val.country_code||'') + ' ' + (val.number||'') : val)}"></div>`;
+      if (field.type === 'textarea') return `<textarea class="viewer-control" data-field-id="${esc(field.field_id)}" data-canonical-id="${esc(field.canonical_id || field.field_id)}" data-question="${esc(field.label)}" placeholder="${esc(field.placeholder || '')}">${esc(val)}</textarea>`;
+      if (field.type === 'combobox' || field.type === 'native_select') {
+        const hasMatch = (field.options||[]).some(o => optionLabel(o) === val);
+        return `<input class="viewer-control" list="list-${esc(field.field_id)}" data-field-id="${esc(field.field_id)}" data-canonical-id="${esc(field.canonical_id || field.field_id)}" data-question="${esc(field.label)}" value="${esc(val)}" placeholder="Type or select…"><datalist id="list-${esc(field.field_id)}">${(field.options||[]).map((o)=>`<option value="${esc(optionLabel(o))}"></option>`).join('')}</datalist>`;
+      }
+      return `<input class="viewer-control" data-field-id="${esc(field.field_id)}" data-canonical-id="${esc(field.canonical_id || field.field_id)}" data-question="${esc(field.label)}" type="${field.type === 'number' ? 'number' : 'text'}" value="${esc(val)}" placeholder="${esc(field.placeholder || '')}">`;
+    }
+
     function renderField(field) {
-      const missingOptions = ['combobox','native_select','radio_group','checkbox_group','single_choice'].includes(field.type) && !(field.options||[]).length;
-      const optionHtml = ['single_choice','radio_group','checkbox_group','combobox','native_select','unclassified_control','repeater'].includes(field.type) ? '' : ((field.options||[]).length ? '<div class="fake-options">' + field.options.map((o)=>'<span class="fake-option">'+esc(typeof o==='string'?o:o.label||o.value)+'</span>').join('') + '</div>' : (missingOptions ? '<div class="notice">Options not captured in this artifact</div>' : ''));
+      const resolvedBadge = field.auto_resolved
+        ? `<span class="badge badge-success">✓ Auto-resolved (${esc(field.match_source || 'bank')})</span>`
+        : `<span class="badge badge-pending">Pending</span>`;
       const evidenceDirectory = String(selected.run_id || '').split('/').map(encodeURIComponent).join('/');
       const screenshot = field.screenshot ? '/artifacts/' + evidenceDirectory + '/' + field.screenshot.split('/').map(encodeURIComponent).join('/') + '?key=' + encodeURIComponent(selected.qa_key) : '';
-      const warning = field.coverage_status === 'unclassified' ? '<div class="notice">Unclassified evidence: this control was recorded but is not eligible for automated filling.</div>' : '';
-      const condition = field.conditional_parents?.[0];
-      return `<fieldset class="${missingOptions?'missing':''}" data-field-id="${esc(field.field_id)}" data-conditional-parent="${esc(condition?.field_id || '')}" data-conditional-option="${esc(condition?.option_value || '')}" data-shot="${esc(screenshot)}" data-caption="${esc(field.label)}"><legend>${esc(field.label || 'Unlabelled field')}</legend><div class="field-meta"><span class="badge">${esc(field.type)}</span>${field.label_source?`<span class="badge">label: ${esc(field.label_source)}</span>`:''}${field.required?'required · ':''}${field.disabled?'disabled · ':''}${field.read_only?'read-only':''}</div>${field.help_text?'<div class="hint">'+esc(field.help_text)+'</div>':''}${warning}${fieldControl(field)}${optionCaptureEvidence(field)}${optionHtml}${field.conditional_path?.length?'<div class="hint">Conditional path: '+esc(field.conditional_path.join(' → '))+'</div>':''}</fieldset>`;
+      const condParents = field.conditional_parents && field.conditional_parents.length > 0 ? esc(JSON.stringify(field.conditional_parents)) : '';
+      return `<fieldset data-field-id="${esc(field.field_id)}" data-conditional="${condParents}" data-shot="${esc(screenshot)}" data-caption="${esc(field.label)}"><legend>${esc(field.label || 'Unlabelled field')}</legend><div class="field-meta"><span class="badge">${esc(field.type)}</span>${resolvedBadge}</div>${fieldControl(field)}${optionCaptureEvidence(field)}</fieldset>`;
     }
+
+    function updateConditionalVisibility() {
+      if (!selected) return;
+      const currentAnswers = {};
+      document.querySelectorAll('input[data-field-id], textarea[data-field-id], select[data-field-id]').forEach(input => {
+        const fid = input.dataset.fieldId;
+        if (input.type === 'radio' || input.type === 'checkbox') {
+          if (input.checked) currentAnswers[fid] = input.value;
+        } else if (input.value) {
+          currentAnswers[fid] = input.value;
+        }
+      });
+
+      document.querySelectorAll('fieldset[data-conditional]').forEach(card => {
+        const raw = card.dataset.conditional;
+        if (!raw) return;
+        try {
+          const parents = JSON.parse(raw);
+          if (!Array.isArray(parents) || parents.length === 0) return;
+          let visible = true;
+          for (const p of parents) {
+            const actual = String(currentAnswers[p.field_id] || '').trim().toLowerCase();
+            const expected = String(p.option_value || p.option_label || '').trim().toLowerCase();
+            if (!actual || (actual !== expected && !actual.includes(expected))) {
+              visible = false;
+              break;
+            }
+          }
+          card.style.display = visible ? '' : 'none';
+        } catch (_) {}
+      });
+    }
+
     function render() {
       if (!selected || selected.error) return;
       $('formTitle').textContent = selected.company + ' — ' + selected.title;
       $('form').innerHTML = (selected.pages||[]).map((page) => `<article class="page"><div class="page-title"><h2>Page ${page.page_index}</h2><span class="badge">${page.field_count} fields</span></div>${[...new Set((selected.fields||[]).filter((f)=>f.page_index===page.page_index).map((f)=>f.section||'Unsectioned'))].map((section)=>`<section class="section"><h3>${esc(section)}</h3>${(selected.fields||[]).filter((f)=>f.page_index===page.page_index && (f.section||'Unsectioned')===section).map(renderField).join('')}</section>`).join('')}</article>`).join('') || '<div class="empty">No fields captured.</div>';
-      const fields = selected.fields||[]; const optionFields = fields.filter((f)=>['combobox','native_select','radio_group','checkbox_group','single_choice'].includes(f.type)); const withOptions = optionFields.filter((f)=>(f.options||[]).length); const unclassified = fields.filter((f)=>f.coverage_status==='unclassified'); const repeaters = fields.filter((f)=>f.type==='repeater'); const schemaCount = repeaters.filter((f)=>(f.repeater_schema||f.repeatable_fields||[]).length).length; const duplicateContainers = new Set(fields.filter((f)=>f.question_container?.fingerprint).map((f)=>f.question_container.fingerprint)).size;
-      const legacyWarning = duplicateContainers < fields.filter((f)=>f.question_container?.fingerprint).length ? '<div class="notice">This artifact has repeated container records from an older scanner. It is displayed as captured; run a new scan for grouped controls.</div>' : '';
-      $('form').insertAdjacentHTML('afterbegin', legacyWarning);
+      const fields = selected.fields||[];
       window.__fieldById = Object.fromEntries(fields.map((field) => [field.field_id, field]));
-      const selectedValues = (fieldId) => [...document.querySelectorAll(`[data-field-id="${CSS.escape(fieldId)}"]`)].filter((input) => input.checked || input.value).map((input) => input.value);
-      const applyConditions = () => document.querySelectorAll('[data-conditional-parent]').forEach((node) => {
-        const parent = node.dataset.conditionalParent; if (!parent) return;
-        const values = selectedValues(parent); node.hidden = !values.includes(node.dataset.conditionalOption);
+
+      // Populate existing repeater cards if value exists
+      fields.filter(f => f.type === 'repeater' && Array.isArray(f.value)).forEach(f => {
+        f.value.forEach(item => addRepeater(f.field_id, item));
       });
-      $('form').onchange = (event) => {
-        const fieldId = event.target.dataset.fieldId;
-        if (event.target.type === 'file' && fieldId) { const file = event.target.files?.[0]; const label = document.querySelector(`[data-file-name="${CSS.escape(fieldId)}"]`); if (label) label.textContent = file?.name || 'No file selected'; }
-        applyConditions();
-      };
+
       $('form').onclick = (event) => {
         const add = event.target.closest('[data-add-repeater]');
         if (add) addRepeater(add.dataset.addRepeater);
         const remove = event.target.closest('[data-remove-repeater]');
         if (remove) remove.closest('.repeater-card')?.remove();
       };
-      $('coverage').innerHTML = `<li>${fields.length} fields across ${(selected.pages||[]).length} pages</li><li>${new Set(fields.map((f)=>f.section)).size} sections</li><li>${optionFields.length} option-capable fields; ${withOptions.length} have saved options</li><li>${fields.filter((f)=>(f.conditional_path||[]).length).length} conditional fields</li><li>${unclassified.length} unclassified controls</li><li>${repeaters.length} repeaters; ${schemaCount} nested schemas captured</li>`;
+      $('form').onchange = updateConditionalVisibility;
+      $('form').oninput = updateConditionalVisibility;
+
+      updateConditionalVisibility();
+
+      const resolvedCount = fields.filter(f => f.auto_resolved || (f.value !== null && f.value !== undefined && f.value !== '')).length;
+      $('coverage').innerHTML = `<li>${fields.length} total questions</li><li style="color:#107c41;font-weight:600">${resolvedCount} answered / auto-resolved</li><li style="color:#856404;font-weight:600">${fields.length - resolvedCount} pending</li><li>${(selected.pages||[]).length} application pages</li><li>${fields.filter((f)=>f.coverage_status==='unclassified').length} unclassified controls</li>`;
+
       document.querySelectorAll('fieldset[data-shot]').forEach((field) => field.onclick = (event) => { if (event.target.closest('input,select,textarea,button')) return; $('screenshot').src = field.dataset.shot; $('caption').textContent = field.dataset.caption; });
       const first = document.querySelector('fieldset[data-shot]'); if (first) first.click();
-      applyConditions();
     }
+
+    // Save Answers Handler
+    $('btnSaveAnswers').onclick = async () => {
+      if (!selected) return;
+      const answers = {};
+      document.querySelectorAll('input[data-canonical-id], textarea[data-canonical-id]').forEach(input => {
+        const id = input.dataset.canonicalId;
+        const question = input.dataset.question;
+        if (input.type === 'radio' || input.type === 'checkbox') {
+          if (input.checked) answers[id] = { question, value: input.value || true };
+        } else if (input.value) {
+          answers[id] = { question, value: input.value };
+        }
+      });
+
+      showStatus('Saving answers to Bank…', 'info');
+      const res = await fetch('/api/job/answers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key: selected.qa_key, jobId: selected.job_id, answers }),
+      });
+      const data = await res.json();
+      if (data.ok) showStatus(`✓ Saved ${data.saved_count} answers to User Bank!`, 'success');
+      else showStatus('Error saving answers', 'info');
+    };
+
+    // Apply Handler
+    $('btnApplyJob').onclick = async () => {
+      if (!selected) return;
+      showStatus('🚀 Application filler launched… filling fields at human pace', 'info', 6000);
+      const res = await fetch('/api/job/apply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key: selected.qa_key, jobId: selected.job_id }),
+      });
+      const data = await res.json();
+      if (data.status === 'filled_awaiting_approval') {
+        $('reviewBanner').style.display = 'block';
+        $('btnApproveSubmit').disabled = false;
+        showStatus('⚠️ All fields filled. Review final page and click "Approve & Submit"!', 'info', 8000);
+      }
+    };
+
+    // Approve & Submit Handler
+    $('btnApproveSubmit').onclick = async () => {
+      if (!selected) return;
+      showStatus('Submitting application…', 'info');
+      const res = await fetch('/api/job/approve-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jobId: selected.job_id }),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        $('btnApproveSubmit').disabled = true;
+        $('reviewBanner').style.display = 'none';
+        showStatus('🎉 Application submitted successfully!', 'success', 10000);
+      }
+    };
+
     fetch('/api/index').then((response)=>response.json()).then((data)=>{ index=data; renderJobs(); const first=data.jobs[0]; if(first) loadJob(first.qa_key); });
   </script>
 </body>
